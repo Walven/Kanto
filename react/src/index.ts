@@ -1,4 +1,3 @@
-import { Button } from "./stories/Button";
-import { Header } from "./stories/Header";
+import { Icon } from './stories/Icon';
 
-export { Button, Header };
+export { Icon };

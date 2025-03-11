@@ -5,6 +5,7 @@ import dts from "rollup-plugin-dts";
 import postcss from "rollup-plugin-postcss";
 import packageJson from "./package.json" assert { type: "json" };
 import peerDepsExternal from 'rollup-plugin-peer-deps-external';
+import svgr from '@svgr/rollup';
 
 export default [
   {
@@ -30,6 +31,7 @@ export default [
         exclude: ["**/*.test.tsx", "**/*.test.ts", "**/*.stories.ts", "**/main.tsx"],
       }),
       postcss({ extensions: [".css"], inject: true, extract: false }),
+      svgr({ dimensions: false, svgo: false, typescript: true, exportType: "named" }),
     ],
   },
   {
