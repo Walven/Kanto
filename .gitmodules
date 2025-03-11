@@ -1,0 +1,3 @@
+[submodule "fonts/OakSans"]
+	path = fonts/OakSans
+	url = git@github.com:Walven/OakSans.git
