@@ -1,0 +1,74 @@
+.text-color {
+  color: var(--color-alias-neutral-15);
+}
+
+.text-color.muted {
+  color: var(--color-alias-neutral-14);
+}
+
+.text-color.subtle {
+  color: var(--color-alias-neutral-13);
+}
+
+.text-color.placeholder,
+input::placeholder {
+  color: var(--color-alias-neutral-10);
+}
+
+.text-color.disabled,
+input:disabled,
+button:disabled {
+  color: var(--color-alias-neutral-9);
+}
+
+.text-color.accent {
+  color: var(--color-alias-accent-15);
+}
+
+.text-color.accent.muted,
+a:hover {
+  color: var(--color-alias-accent-14);
+}
+
+.text-color.link,
+.text-color.accent.subtle,
+a,
+a:active {
+  color: var(--color-alias-accent-13);
+}
+
+.text-color.success {
+  color: var(--color-alias-success-15);
+}
+
+.text-color.success.muted {
+  color: var(--color-alias-success-14);
+}
+
+.text-color.success.subtle {
+  color: var(--color-alias-success-13);
+}
+
+.text-color.critical {
+  color: var(--color-alias-critical-15);
+}
+
+.text-color.critical.muted {
+  color: var(--color-alias-critical-14);
+}
+
+.text-color.critical.subtle {
+  color: var(--color-alias-critical-13);
+}
+
+.text-color.highlight {
+  color: var(--color-alias-highlight-15);
+}
+
+.text-color.highlight.muted {
+  color: var(--color-alias-highlight-14);
+}
+
+.text-color.highlight.subtle {
+  color: var(--color-alias-highlight-13);
+}

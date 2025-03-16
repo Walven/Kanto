@@ -1,0 +1,59 @@
+.margin-negative-25 {
+  margin: var(--space-negative-25);
+}
+.margin-negative-50 {
+  margin: var(--space-negative-50);
+}
+.margin-negative-100 {
+  margin: var(--space-negative-100);
+}
+.margin-0 {
+  margin: var(--space-0);
+}
+.margin-50 {
+  margin: var(--space-50);
+}
+.margin-100 {
+  margin: var(--space-100);
+}
+.margin-150 {
+  margin: var(--space-150);
+}
+.margin-200 {
+  margin: var(--space-200);
+}
+.margin-300 {
+  margin: var(--space-300);
+}
+.margin-400 {
+  margin: var(--space-400);
+}
+.margin-500 {
+  margin: var(--space-500);
+}
+.margin-600 {
+  margin: var(--space-600);
+}
+.margin-800 {
+  margin: var(--space-800);
+}
+.margin-1000 {
+  margin: var(--space-1000);
+}
+.margin-1200 {
+  margin: var(--space-1200);
+}
+.margin-1600 {
+  margin: var(--space-1600);
+}
+.margin-2000 {
+  margin: var(--space-2000);
+}
+.margin-2400 {
+  margin: var(--space-2400);
+}
+.margin-3200 {
+  margin: var(--space-3200);
+}
+
+/* TODO: define how to handle margins */
