@@ -1,6 +1,5 @@
 import { SpacingToken } from './token';
-
-type PixelUnit = `${number}px` | `-${number}px`;
+import { PixelUnitTokenType } from './tokenTypes';
 
 export const spacing = {
   'space-0': '0px',
@@ -22,4 +21,4 @@ export const spacing = {
   'space-negative-25': '-1px',
   'space-negative-50': '-2px',
   'space-negative-100': '-4px',
-} satisfies Record<SpacingToken, PixelUnit>;
+} satisfies Record<SpacingToken, PixelUnitTokenType>;

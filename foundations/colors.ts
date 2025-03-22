@@ -204,7 +204,7 @@ export const colors = {
   'color-background-highlight-muted': { dark: 'color-alias-highlight-5', light: 'color-alias-highlight-5' },
   'color-background-highlight-subtle': { dark: 'color-alias-highlight-4', light: 'color-alias-highlight-4' },
   // Color/Background/Inverse
-  'color-background-inverse': { dark: 'palette-iron-4', light: 'palette-irondark-4' }, // TODO: fix inconsistency between "palette" and "color" in the token
+  'color-background-inverse': { dark: 'palette-iron-4', light: 'palette-irondark-4' },
   'color-background-inverse-hover': { dark: 'palette-iron-5', light: 'palette-irondark-5' },
   'color-background-inverse-active': { dark: 'palette-iron-6', light: 'palette-irondark-6' },
   // Color/Border

@@ -14,3 +14,5 @@ export type ColorMixTokenType<TokenType extends string> = {
   b: ColorTokenTypeWithReference<TokenType>;
   bWeight?: `${number}%`;
 };
+
+export type PixelUnitTokenType = `${number}px` | `-${number}px`;
