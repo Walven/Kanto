@@ -1,4 +1,5 @@
 import { ColorAliasToken, ColorType, PaletteToken, TokenConstructor } from './token';
+import { ColorMixTokenType } from './tokenTypes';
 
 export type ColorStyle = 'strong' | 'subtle' | 'muted';
 
@@ -7,8 +8,10 @@ export type ColorModifier = 'hover' | 'active' | 'selected' | 'disabled';
 export type ExtendedColorType = ColorType;
 
 export type BackgroundColorToken =
-  | TokenConstructor<['color', 'background', ColorStyle | 'inverse']>
+  | TokenConstructor<['color', 'background', ColorStyle | 'inverse' | 'transparent']>
+  | TokenConstructor<['color', 'background', ColorModifier]>
   | TokenConstructor<['color', 'background', ColorType, ColorStyle]>
+  | TokenConstructor<['color', 'background', ColorType, ColorModifier]>
   | TokenConstructor<['color', 'background', ColorStyle | 'inverse', ColorModifier]>
   | TokenConstructor<['color', 'background', ColorType, ColorStyle, ColorModifier]>;
 
@@ -18,6 +21,7 @@ export type BorderColorToken =
   | TokenConstructor<['color', 'border', ColorStyle]>
   | TokenConstructor<['color', 'border', ColorType]>
   | TokenConstructor<['color', 'border', ColorType, ColorStyle]>
+  | TokenConstructor<['color', 'border', ColorType, ColorModifier]>
   | TokenConstructor<['color', 'border', ColorStyle, ColorModifier]>
   | TokenConstructor<['color', 'border', ColorType, ColorStyle, ColorModifier]>;
 
@@ -35,9 +39,10 @@ export type TextColorToken =
   | TokenConstructor<['color', 'text']>
   | TokenConstructor<['color', 'text', ColorStyle]>
   | TokenConstructor<['color', 'text', ColorModifier]>
-  | TokenConstructor<['color', 'text', 'placeholder' | 'disabled' | 'link']>
+  | TokenConstructor<['color', 'text', 'placeholder' | 'disabled']>
   | TokenConstructor<['color', 'text', ColorType | 'static-black' | 'static-white' | 'inverse']>
-  | TokenConstructor<['color', 'text', ColorType | 'inverse', ColorModifier]>;
+  | TokenConstructor<['color', 'text', ColorType | 'inverse', ColorModifier]>
+  | TokenConstructor<['color', 'text', ColorType | 'inverse', ColorStyle]>;
 
 export type NonAliasColorToken =
   | BackgroundColorToken
@@ -46,10 +51,16 @@ export type NonAliasColorToken =
   | SurfaceColorToken
   | TextColorToken;
 
-export type ColorModeTokenType<T extends string> = { dark: T; light: T };
+type ColorStaticTransparentToken = TokenConstructor<['color', 'static', 'transparent']>;
+
+export type ColorModeTokenType<T> = { dark: T; light: T };
 
 export const colors: Record<ColorAliasToken, ColorModeTokenType<PaletteToken>> &
-  Partial<Record<NonAliasColorToken, ColorModeTokenType<ColorAliasToken | PaletteToken>>> = {
+  Record<ColorStaticTransparentToken, ColorModeTokenType<ColorMixTokenType<''>>> &
+  Record<TokenConstructor<['color', 'text', 'link']>, ColorModeTokenType<TextColorToken>> &
+  Partial<
+    Record<NonAliasColorToken, ColorModeTokenType<ColorAliasToken | PaletteToken | ColorStaticTransparentToken>>
+  > = {
   'color-alias-neutral-1': { dark: 'palette-iron-1', light: 'palette-iron-1' },
   'color-alias-neutral-2': { dark: 'palette-iron-2', light: 'palette-iron-2' },
   'color-alias-neutral-3': { dark: 'palette-iron-3', light: 'palette-iron-3' },
@@ -155,4 +166,126 @@ export const colors: Record<ColorAliasToken, ColorModeTokenType<PaletteToken>> &
   'color-alias-highlight-13': { dark: 'palette-sapphire-13', light: 'palette-sapphire-13' },
   'color-alias-highlight-14': { dark: 'palette-sapphire-14', light: 'palette-sapphire-14' },
   'color-alias-highlight-15': { dark: 'palette-sapphire-15', light: 'palette-sapphire-15' },
+  'color-static-transparent': {
+    dark: { space: 'srgb', a: '#FFFFFF', aWeight: '0.01%', b: 'transparent' },
+    light: { space: 'srgb', a: '#FFFFFF', aWeight: '0.01%', b: 'transparent' },
+  },
+  // Color/Background
+  'color-background-strong': { dark: 'color-alias-neutral-11', light: 'color-alias-neutral-11' },
+  'color-background-muted': { dark: 'color-alias-neutral-5', light: 'color-alias-neutral-5' },
+  'color-background-muted-hover': { dark: 'color-alias-neutral-6', light: 'color-alias-neutral-6' },
+  'color-background-muted-active': { dark: 'color-alias-neutral-7', light: 'color-alias-neutral-7' },
+  'color-background-subtle': { dark: 'color-alias-neutral-4', light: 'color-alias-neutral-4' },
+  'color-background-subtle-hover': { dark: 'color-alias-neutral-5', light: 'color-alias-neutral-5' },
+  'color-background-subtle-active': { dark: 'color-alias-neutral-6', light: 'color-alias-neutral-6' },
+  'color-background-transparent': { dark: 'color-static-transparent', light: 'color-static-transparent' },
+  'color-background-disabled': { dark: 'color-alias-neutral-alpha-3', light: 'color-alias-neutral-alpha-3' },
+  // Color/Background/Accent
+  'color-background-accent-strong': { dark: 'color-alias-accent-10', light: 'color-alias-accent-11' },
+  'color-background-accent-strong-hover': { dark: 'color-alias-accent-11', light: 'color-alias-accent-12' },
+  'color-background-accent-strong-active': { dark: 'color-alias-accent-12', light: 'color-alias-accent-13' },
+  'color-background-accent-muted': { dark: 'color-alias-accent-5', light: 'color-alias-accent-5' },
+  'color-background-accent-muted-hover': { dark: 'color-alias-accent-6', light: 'color-alias-accent-6' },
+  'color-background-accent-muted-active': { dark: 'color-alias-accent-7', light: 'color-alias-accent-7' },
+  'color-background-accent-subtle': { dark: 'color-alias-accent-4', light: 'color-alias-accent-4' },
+  'color-background-accent-subtle-hover': { dark: 'color-alias-accent-5', light: 'color-alias-accent-5' },
+  'color-background-accent-subtle-active': { dark: 'color-alias-accent-6', light: 'color-alias-accent-6' },
+  'color-background-accent-selected': { dark: 'color-alias-accent-6', light: 'color-alias-accent-6' },
+  // Color/Background/Success
+  'color-background-success-strong': { dark: 'color-alias-success-11', light: 'color-alias-success-11' },
+  'color-background-success-muted': { dark: 'color-alias-success-5', light: 'color-alias-success-5' },
+  'color-background-success-subtle': { dark: 'color-alias-success-4', light: 'color-alias-success-4' },
+  // Color/Background/Critical
+  'color-background-critical-strong': { dark: 'color-alias-critical-11', light: 'color-alias-critical-11' },
+  'color-background-critical-strong-hover': { dark: 'color-alias-critical-12', light: 'color-alias-critical-12' },
+  'color-background-critical-strong-active': { dark: 'color-alias-critical-13', light: 'color-alias-critical-13' },
+  'color-background-critical-muted': { dark: 'color-alias-critical-5', light: 'color-alias-critical-5' },
+  'color-background-critical-muted-hover': { dark: 'color-alias-critical-6', light: 'color-alias-critical-6' },
+  'color-background-critical-muted-active': { dark: 'color-alias-critical-7', light: 'color-alias-critical-7' },
+  'color-background-critical-subtle': { dark: 'color-alias-critical-4', light: 'color-alias-critical-4' },
+  'color-background-critical-subtle-hover': { dark: 'color-alias-critical-5', light: 'color-alias-critical-5' },
+  'color-background-critical-subtle-active': { dark: 'color-alias-critical-6', light: 'color-alias-critical-6' },
+  'color-background-critical-selected': { dark: 'color-alias-critical-6', light: 'color-alias-critical-6' },
+  // Color/Background/Highlight
+  'color-background-highlight-strong': { dark: 'color-alias-highlight-11', light: 'color-alias-highlight-11' },
+  'color-background-highlight-muted': { dark: 'color-alias-highlight-5', light: 'color-alias-highlight-5' },
+  'color-background-highlight-subtle': { dark: 'color-alias-highlight-4', light: 'color-alias-highlight-4' },
+  // Color/Background/Inverse
+  'color-background-inverse': { dark: 'palette-iron-4', light: 'palette-irondark-4' }, // TODO: fix inconsistency between "palette" and "color" in the token
+  'color-background-inverse-hover': { dark: 'palette-iron-5', light: 'palette-irondark-5' },
+  'color-background-inverse-active': { dark: 'palette-iron-6', light: 'palette-irondark-6' },
+  // Color/Border
+  'color-border': { dark: 'color-alias-neutral-8', light: 'color-alias-neutral-8' },
+  'color-border-hover': { dark: 'color-alias-neutral-9', light: 'color-alias-neutral-9' },
+  'color-border-subtle': { dark: 'color-alias-neutral-7', light: 'color-alias-neutral-7' },
+  'color-border-subtle-hover': { dark: 'color-alias-neutral-8', light: 'color-alias-neutral-8' },
+  'color-border-strong': { dark: 'color-alias-neutral-9', light: 'color-alias-neutral-13' },
+  'color-border-selected': { dark: 'color-alias-neutral-9', light: 'color-alias-neutral-9' },
+  'color-border-disabled': { dark: 'color-alias-neutral-5', light: 'color-alias-neutral-5' },
+  // Color/Border/Accent
+  'color-border-accent': { dark: 'color-alias-accent-8', light: 'color-alias-accent-8' },
+  'color-border-accent-subtle': { dark: 'color-alias-accent-7', light: 'color-alias-accent-7' },
+  'color-border-accent-strong': { dark: 'color-alias-accent-10', light: 'color-alias-accent-10' },
+  'color-border-accent-selected': { dark: 'color-alias-accent-10', light: 'color-alias-accent-10' },
+  // Color/Border/Success
+  'color-border-success': { dark: 'color-alias-success-8', light: 'color-alias-success-8' },
+  'color-border-success-subtle': { dark: 'color-alias-success-7', light: 'color-alias-success-7' },
+  // Color/Border/Critical
+  'color-border-critical': { dark: 'color-alias-critical-8', light: 'color-alias-critical-8' },
+  'color-border-critical-subtle': { dark: 'color-alias-critical-7', light: 'color-alias-critical-7' },
+  'color-border-critical-strong': { dark: 'color-alias-critical-10', light: 'color-alias-critical-10' },
+  // Color/Border/Highlight
+  'color-border-highlight': { dark: 'color-alias-highlight-8', light: 'color-alias-highlight-8' },
+  'color-border-highlight-subtle': { dark: 'color-alias-highlight-7', light: 'color-alias-highlight-7' },
+  // Color/Icon
+  'color-icon': { dark: 'color-alias-neutral-10', light: 'color-alias-neutral-10' },
+  'color-icon-hover': { dark: 'color-alias-neutral-11', light: 'color-alias-neutral-11' },
+  'color-icon-disabled': { dark: 'color-alias-neutral-9', light: 'color-alias-neutral-9' },
+  // Color/Icon/Success
+  'color-icon-success': { dark: 'color-alias-success-11', light: 'color-alias-success-11' },
+  // Color/Icon/Critical
+  'color-icon-critical': { dark: 'color-alias-critical-11', light: 'color-alias-critical-11' },
+  // Color/Icon/Highlight
+  'color-icon-highlight': { dark: 'color-alias-highlight-11', light: 'color-alias-highlight-11' },
+  // Color/Icon/Static
+  'color-icon-static-black': { dark: 'palette-black', light: 'palette-black' },
+  'color-icon-static-white': { dark: 'palette-white', light: 'palette-white' },
+  // Color/Icon/Inverse
+  'color-icon-static-inverse': { dark: 'palette-iron-15', light: 'palette-white' }, // TODO: Decide between static-inverse and inverse
+  // Color/Surface
+  'color-surface': { dark: 'color-alias-neutral-2', light: 'color-alias-neutral-1' },
+  'color-surface-sunken': { dark: 'color-alias-neutral-1', light: 'color-alias-neutral-2' },
+  'color-surface-raised': { dark: 'color-alias-neutral-3', light: 'color-alias-neutral-1' },
+  'color-surface-overlay': { dark: 'color-alias-neutral-4', light: 'color-alias-neutral-1' },
+  // Color/Text
+  'color-text': { dark: 'color-alias-neutral-15', light: 'color-alias-neutral-15' },
+  'color-text-muted': { dark: 'color-alias-neutral-14', light: 'color-alias-neutral-14' },
+  'color-text-subtle': { dark: 'color-alias-neutral-13', light: 'color-alias-neutral-13' },
+  'color-text-placeholder': { dark: 'color-alias-neutral-10', light: 'color-alias-neutral-10' },
+  'color-text-disabled': { dark: 'color-alias-neutral-9', light: 'color-alias-neutral-9' },
+  // Color/Text/Link
+  'color-text-link': { dark: 'color-text-accent-subtle', light: 'color-text-accent-subtle' },
+  // Color/Text/Accent
+  'color-text-accent': { dark: 'color-alias-accent-15', light: 'color-alias-accent-15' },
+  'color-text-accent-muted': { dark: 'color-alias-accent-14', light: 'color-alias-accent-14' },
+  'color-text-accent-subtle': { dark: 'color-alias-accent-13', light: 'color-alias-accent-13' },
+  // Color/Text/Success
+  'color-text-success': { dark: 'color-alias-success-15', light: 'color-alias-success-15' },
+  'color-text-success-muted': { dark: 'color-alias-success-14', light: 'color-alias-success-14' },
+  'color-text-success-subtle': { dark: 'color-alias-success-13', light: 'color-alias-success-13' },
+  // Color/Text/Critical
+  'color-text-critical': { dark: 'color-alias-critical-15', light: 'color-alias-critical-15' },
+  'color-text-critical-muted': { dark: 'color-alias-critical-14', light: 'color-alias-critical-14' },
+  'color-text-critical-subtle': { dark: 'color-alias-critical-13', light: 'color-alias-critical-13' },
+  // Color/Text/Highlight
+  'color-text-highlight': { dark: 'color-alias-highlight-15', light: 'color-alias-highlight-15' },
+  'color-text-highlight-muted': { dark: 'color-alias-highlight-14', light: 'color-alias-highlight-14' },
+  'color-text-highlight-subtle': { dark: 'color-alias-highlight-13', light: 'color-alias-highlight-13' },
+  // Color/Text/Static
+  'color-text-static-black': { dark: 'palette-black', light: 'palette-white' },
+  'color-text-static-white': { dark: 'palette-white', light: 'palette-white' },
+  // Color/Text/inverse
+  'color-text-inverse': { dark: 'palette-iron-15', light: 'palette-white' },
+  'color-text-inverse-muted': { dark: 'palette-iron-14', light: 'palette-irondark-14' },
+  'color-text-inverse-subtle': { dark: 'palette-iron-13', light: 'palette-irondark-13' },
 };
