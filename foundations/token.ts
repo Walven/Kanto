@@ -1,42 +1,11 @@
-type ColorFromPalette =
-  | 'pewter'
-  | 'carbon'
-  | 'iron'
-  | 'zinc'
-  | 'silver'
-  | 'gold'
-  | 'bronze'
-  | 'topaz'
-  | 'vermilion'
-  | 'cinnabar'
-  | 'ruby'
-  | 'crimson'
-  | 'magenta'
-  | 'fuchsia'
-  | 'amethyst'
-  | 'lavender'
-  | 'indigo'
-  | 'cobalt'
-  | 'sapphire'
-  | 'cerulean'
-  | 'cyan'
-  | 'celadon'
-  | 'viridian'
-  | 'emerald'
-  | 'peridot'
-  | 'olive'
-  | 'saffron'
-  | 'amber'
-  | 'azure';
+import { colors, type ColorType } from './colors';
 
+// prettier-ignore
+type ColorFromPalette = 'pewter'| 'carbon'| 'iron'| 'zinc'| 'silver'| 'gold'| 'bronze'| 'topaz'| 'vermilion'| 'cinnabar'| 'ruby'| 'crimson'| 'magenta'| 'fuchsia'| 'amethyst'| 'lavender'| 'indigo'| 'cobalt'| 'sapphire'| 'cerulean'| 'cyan'| 'celadon'| 'viridian'| 'emerald'| 'peridot'| 'olive'| 'saffron'| 'amber'| 'azure';
 type DarkColorFromPalette = `${ColorFromPalette}dark`;
-
 type ColorScale = '1' | '2' | '3' | '4' | '5' | '6' | '7' | '8' | '9' | '10' | '11' | '12' | '13' | '14' | '15';
-
 type StaticColor = 'black' | 'white';
 type StaticColorScale = '50' | '100' | '150' | '250' | '500' | '750' | '900';
-
-export type ColorType = 'neutral' | 'accent' | 'success' | 'critical' | 'highlight';
 
 /**
  * Allow construction of tokens
@@ -82,3 +51,19 @@ export type PaletteToken =
 export type ColorAliasToken =
   | TokenConstructor<['color', 'alias', ColorType, ColorScale]>
   | TokenConstructor<['color', 'alias', 'neutral' | 'accent', 'alpha', ColorScale]>;
+
+export type ColorToken = keyof typeof colors;
+export type ColorAndPaletteToken = ColorToken | PaletteToken;
+export type ColorBackgroundToken = Extract<ColorToken, `color-background${string}`>;
+export type ColorBorderToken = Extract<ColorToken, `color-border${string}`>;
+export type ColorIconToken = Extract<ColorToken, `color-icon${string}`>;
+export type ColorSurfaceToken = Extract<ColorToken, `color-surface${string}`>;
+export type ColorTextToken = Extract<ColorToken, `color-text${string}`>;
+
+// prettier-ignore
+type SpacingScales = '0' | '50' | '100' | '150' | '200' | '300' | '400' | '500' | '600' | '800' | '1000' | '1200' | '1600' | '2000' | '2400' | '3200';
+type SpacingNegativeScales = '25' | '50' | '100';
+
+export type SpacingToken =
+  | TokenConstructor<['space', SpacingScales]>
+  | TokenConstructor<['space', 'negative', SpacingNegativeScales]>;

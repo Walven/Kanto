@@ -1,13 +1,11 @@
-import { ColorAliasToken, ColorType, PaletteToken, TokenConstructor } from './token';
-import { ColorMixTokenType } from './tokenTypes';
+import type { ColorAliasToken, PaletteToken, TokenConstructor } from './token';
+import type { ColorMixTokenType } from './tokenTypes';
 
-export type ColorStyle = 'strong' | 'subtle' | 'muted';
+export type ColorType = 'neutral' | 'accent' | 'success' | 'critical' | 'highlight';
+type ColorStyle = 'strong' | 'subtle' | 'muted';
+type ColorModifier = 'hover' | 'active' | 'selected' | 'disabled';
 
-export type ColorModifier = 'hover' | 'active' | 'selected' | 'disabled';
-
-export type ExtendedColorType = ColorType;
-
-export type BackgroundColorToken =
+type LikelyColorBackgroundToken =
   | TokenConstructor<['color', 'background', ColorStyle | 'inverse' | 'transparent']>
   | TokenConstructor<['color', 'background', ColorModifier]>
   | TokenConstructor<['color', 'background', ColorType, ColorStyle]>
@@ -15,7 +13,7 @@ export type BackgroundColorToken =
   | TokenConstructor<['color', 'background', ColorStyle | 'inverse', ColorModifier]>
   | TokenConstructor<['color', 'background', ColorType, ColorStyle, ColorModifier]>;
 
-export type BorderColorToken =
+type LikelyColorBorderToken =
   | TokenConstructor<['color', 'border']>
   | TokenConstructor<['color', 'border', ColorModifier]>
   | TokenConstructor<['color', 'border', ColorStyle]>
@@ -25,17 +23,17 @@ export type BorderColorToken =
   | TokenConstructor<['color', 'border', ColorStyle, ColorModifier]>
   | TokenConstructor<['color', 'border', ColorType, ColorStyle, ColorModifier]>;
 
-export type IconColorToken =
+type LikelyColorIconToken =
   | TokenConstructor<['color', 'icon']>
   | TokenConstructor<['color', 'icon', ColorModifier]>
   | TokenConstructor<['color', 'icon', ColorStyle]>
   | TokenConstructor<['color', 'icon', ColorType | 'static-black' | 'static-white' | 'static-inverse']>;
 
-export type SurfaceColorToken =
+type LikelyColorSurfaceToken =
   | TokenConstructor<['color', 'surface']>
   | TokenConstructor<['color', 'surface', 'sunken' | 'raised' | 'overlay']>;
 
-export type TextColorToken =
+type LikelyColorTextToken =
   | TokenConstructor<['color', 'text']>
   | TokenConstructor<['color', 'text', ColorStyle]>
   | TokenConstructor<['color', 'text', ColorModifier]>
@@ -44,23 +42,18 @@ export type TextColorToken =
   | TokenConstructor<['color', 'text', ColorType | 'inverse', ColorModifier]>
   | TokenConstructor<['color', 'text', ColorType | 'inverse', ColorStyle]>;
 
-export type NonAliasColorToken =
-  | BackgroundColorToken
-  | BorderColorToken
-  | IconColorToken
-  | SurfaceColorToken
-  | TextColorToken;
+type NonAliasColorToken =
+  | LikelyColorBackgroundToken
+  | LikelyColorBorderToken
+  | LikelyColorIconToken
+  | LikelyColorSurfaceToken
+  | LikelyColorTextToken;
 
 type ColorStaticTransparentToken = TokenConstructor<['color', 'static', 'transparent']>;
 
 export type ColorModeTokenType<T> = { dark: T; light: T };
 
-export const colors: Record<ColorAliasToken, ColorModeTokenType<PaletteToken>> &
-  Record<ColorStaticTransparentToken, ColorModeTokenType<ColorMixTokenType<''>>> &
-  Record<TokenConstructor<['color', 'text', 'link']>, ColorModeTokenType<TextColorToken>> &
-  Partial<
-    Record<NonAliasColorToken, ColorModeTokenType<ColorAliasToken | PaletteToken | ColorStaticTransparentToken>>
-  > = {
+export const colors = {
   'color-alias-neutral-1': { dark: 'palette-iron-1', light: 'palette-iron-1' },
   'color-alias-neutral-2': { dark: 'palette-iron-2', light: 'palette-iron-2' },
   'color-alias-neutral-3': { dark: 'palette-iron-3', light: 'palette-iron-3' },
@@ -288,4 +281,7 @@ export const colors: Record<ColorAliasToken, ColorModeTokenType<PaletteToken>> &
   'color-text-inverse': { dark: 'palette-iron-15', light: 'palette-white' },
   'color-text-inverse-muted': { dark: 'palette-iron-14', light: 'palette-irondark-14' },
   'color-text-inverse-subtle': { dark: 'palette-iron-13', light: 'palette-irondark-13' },
-};
+} satisfies Record<ColorAliasToken, ColorModeTokenType<PaletteToken>> &
+  Record<ColorStaticTransparentToken, ColorModeTokenType<ColorMixTokenType<''>>> &
+  Record<TokenConstructor<['color', 'text', 'link']>, ColorModeTokenType<LikelyColorTextToken>> &
+  Partial<Record<NonAliasColorToken, ColorModeTokenType<ColorAliasToken | PaletteToken | ColorStaticTransparentToken>>>;
