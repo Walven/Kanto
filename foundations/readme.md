@@ -13,4 +13,5 @@ Right now the Foundations are in Typescript. This may change in the future (we a
 |    `palette.ts` | Definition of the whole Kanto color palette |
 |     `colors.ts` | Definition of all the color token of Kanto  |
 |    `spacing.ts` | Definition of all the spacing of Kanto      |
+|     `border.ts` | Definition of border radius and width       |
 | `typography.ts` | Definition of all the typography of Kanto   |

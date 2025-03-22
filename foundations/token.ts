@@ -61,9 +61,15 @@ export type ColorSurfaceToken = Extract<ColorToken, `color-surface${string}`>;
 export type ColorTextToken = Extract<ColorToken, `color-text${string}`>;
 
 // prettier-ignore
-type SpacingScales = '0' | '50' | '100' | '150' | '200' | '300' | '400' | '500' | '600' | '800' | '1000' | '1200' | '1600' | '2000' | '2400' | '3200';
-type SpacingNegativeScales = '25' | '50' | '100';
+type SpacingScale = '0' | '50' | '100' | '150' | '200' | '300' | '400' | '500' | '600' | '800' | '1000' | '1200' | '1600' | '2000' | '2400' | '3200';
+type SpacingNegativeScale = '25' | '50' | '100';
 
 export type SpacingToken =
-  | TokenConstructor<['space', SpacingScales]>
-  | TokenConstructor<['space', 'negative', SpacingNegativeScales]>;
+  | TokenConstructor<['space', SpacingScale]>
+  | TokenConstructor<['space', 'negative', SpacingNegativeScale]>;
+
+type BorderRadiusScale = 'sharp' | 'none' | 'xs' | 's' | 'm' | 'l' | 'xl' | 'round' | 'full';
+export type BorderRadiusToken = TokenConstructor<['border', 'radius', BorderRadiusScale]>;
+
+type BorderWidthScale = '0' | '100' | '200' | '300' | '400';
+export type BorderWidthToken = TokenConstructor<['border', 'width', BorderWidthScale]>;
