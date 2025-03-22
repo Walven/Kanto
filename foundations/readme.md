@@ -6,12 +6,13 @@ Right now the Foundations are in Typescript. This may change in the future (we a
 
 ## Files in foundations
 
-|        filename | description                                 |
-| --------------: | :------------------------------------------ |
-|      `token.ts` | Definition of all the valid tokens          |
-| `tokenTypes.ts` | Definition of the types for some tokens     |
-|    `palette.ts` | Definition of the whole Kanto color palette |
-|     `colors.ts` | Definition of all the color token of Kanto  |
-|    `spacing.ts` | Definition of all the spacing of Kanto      |
-|     `border.ts` | Definition of border radius and width       |
-| `typography.ts` | Definition of all the typography of Kanto   |
+|         filename | description                                 |
+| ---------------: | :------------------------------------------ |
+|       `token.ts` | Definition of all the valid tokens          |
+|  `tokenTypes.ts` | Definition of the types for some tokens     |
+|     `palette.ts` | Definition of the whole Kanto color palette |
+|      `colors.ts` | Definition of all the color token of Kanto  |
+|     `spacing.ts` | Definition of all the spacing of Kanto      |
+|      `border.ts` | Definition of border radius and width       |
+|  `typography.ts` | Definition of all the typography of Kanto   |
+| `generateCSS.ts` | Generate the CSS files based on definitions |

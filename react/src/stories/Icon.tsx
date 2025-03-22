@@ -1,4 +1,3 @@
-import '../../../css/colors/icon.css';
 import { ReactComponent as AddOutline } from '../../../icons/AddOutline.svg';
 import { ReactComponent as AddSolid } from '../../../icons/AddSolid.svg';
 import { ReactComponent as CheckOutline } from '../../../icons/CheckOutline.svg';

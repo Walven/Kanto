@@ -1,4 +1,4 @@
-.typography.display-l {
+.display-l {
   font-family: OakSans, system-ui;
   font-weight: 550;
   font-size: 80px;
@@ -6,15 +6,15 @@
   letter-spacing: -1.5px;
 }
 
-.typography.display-m {
+.display-m {
   font-family: OakSans, system-ui;
   font-weight: 550;
   font-size: 60px;
   line-height: 72px;
-  letter-spacing: -1px;
+  letter-spacing: -1.0px;
 }
 
-.typography.display-s {
+.display-s {
   font-family: OakSans, system-ui;
   font-weight: 550;
   font-size: 48px;
@@ -22,8 +22,7 @@
   letter-spacing: -0.5px;
 }
 
-.typography.heading-xl,
-h1 {
+.heading-xl {
   font-family: OakSans, system-ui;
   font-weight: 550;
   font-size: 40px;
@@ -31,8 +30,7 @@ h1 {
   letter-spacing: -0.4px;
 }
 
-.typography.heading-l,
-h2 {
+.heading-l {
   font-family: OakSans, system-ui;
   font-weight: 550;
   font-size: 32px;
@@ -40,8 +38,7 @@ h2 {
   letter-spacing: -0.2px;
 }
 
-.typography.heading-m,
-h3 {
+.heading-m {
   font-family: OakSans, system-ui;
   font-weight: 550;
   font-size: 28px;
@@ -49,16 +46,15 @@ h3 {
   letter-spacing: -0.1px;
 }
 
-.typography.heading-s,
-h4 {
+.heading-s {
   font-family: OakSans, system-ui;
   font-weight: 550;
   font-size: 24px;
-  line-height: 33px;
+  line-height: 32px;
   letter-spacing: 0px;
 }
 
-.typography.title-l {
+.title-l {
   font-family: OakSans, system-ui;
   font-weight: 550;
   font-size: 18px;
@@ -66,7 +62,7 @@ h4 {
   letter-spacing: 0px;
 }
 
-.typography.title-m {
+.title-m {
   font-family: OakSans, system-ui;
   font-weight: 550;
   font-size: 16px;
@@ -74,7 +70,7 @@ h4 {
   letter-spacing: 0.1px;
 }
 
-.typography.title-s {
+.title-s {
   font-family: OakSans, system-ui;
   font-weight: 550;
   font-size: 14px;
@@ -82,7 +78,7 @@ h4 {
   letter-spacing: 0.2px;
 }
 
-.typography.body-l {
+.body-l {
   font-family: OakSans, system-ui;
   font-weight: 400;
   font-size: 16px;
@@ -90,8 +86,7 @@ h4 {
   letter-spacing: 0.3px;
 }
 
-.typography.body-m,
-p {
+.body-m {
   font-family: OakSans, system-ui;
   font-weight: 400;
   font-size: 14px;
@@ -99,8 +94,7 @@ p {
   letter-spacing: 0.3px;
 }
 
-.typography.body-s,
-p > small {
+.body-s {
   font-family: OakSans, system-ui;
   font-weight: 400;
   font-size: 12px;
@@ -108,7 +102,7 @@ p > small {
   letter-spacing: 0.4px;
 }
 
-.typography.moderate.body-l {
+.body-l-moderate {
   font-family: OakSans, system-ui;
   font-weight: 475;
   font-size: 16px;
@@ -116,8 +110,7 @@ p > small {
   letter-spacing: 0.3px;
 }
 
-.typography.moderate.body-m,
-p.moderate {
+.body-m-moderate {
   font-family: OakSans, system-ui;
   font-weight: 475;
   font-size: 14px;
@@ -125,8 +118,7 @@ p.moderate {
   letter-spacing: 0.3px;
 }
 
-.typography.moderate.body-s,
-p.moderate > small {
+.body-s-moderate {
   font-family: OakSans, system-ui;
   font-weight: 475;
   font-size: 12px;
@@ -134,8 +126,7 @@ p.moderate > small {
   letter-spacing: 0.4px;
 }
 
-.typography.strong.body-l,
-.typography.body-l > strong {
+.body-l-strong {
   font-family: OakSans, system-ui;
   font-weight: 550;
   font-size: 16px;
@@ -143,10 +134,7 @@ p.moderate > small {
   letter-spacing: 0.3px;
 }
 
-.typography.strong.body-m,
-p.strong,
-.typography.body-m > strong,
-p > strong {
+.body-m-strong {
   font-family: OakSans, system-ui;
   font-weight: 550;
   font-size: 14px;
@@ -154,11 +142,7 @@ p > strong {
   letter-spacing: 0.3px;
 }
 
-.typography.strong.body-s,
-p.strong > small,
-.typography.body-s > strong,
-p > small strong,
-p > strong small {
+.body-s-strong {
   font-family: OakSans, system-ui;
   font-weight: 550;
   font-size: 12px;
@@ -166,7 +150,7 @@ p > strong small {
   letter-spacing: 0.4px;
 }
 
-.typography.label-l {
+.label-l {
   font-family: OakSans, system-ui;
   font-weight: 475;
   font-size: 14px;
@@ -174,7 +158,7 @@ p > strong small {
   letter-spacing: 0.2px;
 }
 
-.typography.label-m {
+.label-m {
   font-family: OakSans, system-ui;
   font-weight: 475;
   font-size: 12px;
@@ -182,7 +166,7 @@ p > strong small {
   letter-spacing: 0.3px;
 }
 
-.typography.label-s {
+.label-s {
   font-family: OakSans, system-ui;
   font-weight: 475;
   font-size: 10px;
