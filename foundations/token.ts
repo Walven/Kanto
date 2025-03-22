@@ -34,9 +34,10 @@ type DarkColorFromPalette = `${ColorFromPalette}dark`;
 type ColorScale = '1' | '2' | '3' | '4' | '5' | '6' | '7' | '8' | '9' | '10' | '11' | '12' | '13' | '14' | '15';
 
 type StaticColor = 'black' | 'white';
-type StaticColorScale = '50' | '100' | '150' | '200' | '250' | '500' | '750' | '900';
+type StaticColorScale = '50' | '100' | '150' | '250' | '500' | '750' | '900';
 
 export type ColorType = 'neutral' | 'accent' | 'success' | 'critical' | 'highlight';
+
 /**
  * Allow construction of tokens
  *
@@ -55,15 +56,29 @@ export type TokenConstructor<A extends [string, ...string[]]> = A extends [
   ? `${B}-${TokenConstructor<REST>}`
   : A[0];
 
-export type PaletteLightTokens = TokenConstructor<['palette', ColorFromPalette, ColorScale]>;
-export type PaletteDarkTokens = TokenConstructor<['palette', DarkColorFromPalette, ColorScale]>;
-export type PaletteLightAlphaTokens = TokenConstructor<
+export type PaletteLightToken = TokenConstructor<['palette', ColorFromPalette, ColorScale]>;
+
+export type PaletteDarkToken = TokenConstructor<['palette', DarkColorFromPalette, ColorScale]>;
+
+export type PaletteLightAlphaToken = TokenConstructor<
   ['palette', Extract<ColorFromPalette, 'iron' | 'indigo'>, 'alpha', ColorScale]
 >;
-export type PaletteDarkAlphaTokens = TokenConstructor<
+
+export type PaletteDarkAlphaToken = TokenConstructor<
   ['palette', Extract<DarkColorFromPalette, 'irondark' | 'indigodark'>, 'alpha', ColorScale]
 >;
-export type PaletteStaticTokens =
+
+export type PaletteStaticToken =
   | TokenConstructor<['palette', StaticColor]>
   | TokenConstructor<['palette', StaticColor, StaticColorScale]>;
-export type ColorAliasTokens = TokenConstructor<['color', 'alias', ColorType, ColorScale]>;
+
+export type PaletteToken =
+  | PaletteLightToken
+  | PaletteDarkToken
+  | PaletteLightAlphaToken
+  | PaletteDarkAlphaToken
+  | PaletteStaticToken;
+
+export type ColorAliasToken =
+  | TokenConstructor<['color', 'alias', ColorType, ColorScale]>
+  | TokenConstructor<['color', 'alias', 'neutral' | 'accent', 'alpha', ColorScale]>;
