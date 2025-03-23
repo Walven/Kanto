@@ -2,14 +2,12 @@ import { BorderRadiusToken, BorderWidthToken } from './token';
 import { PixelUnitTokenType } from './tokenTypes';
 
 export const borderRadiuses = {
-  'border-radius-sharp': '0px',
   'border-radius-none': '0px',
   'border-radius-xs': '2px',
   'border-radius-s': '4px',
   'border-radius-m': '8px',
   'border-radius-l': '12px',
   'border-radius-xl': '16px',
-  'border-radius-round': '9999px',
   'border-radius-full': '9999px',
 } satisfies Record<BorderRadiusToken, PixelUnitTokenType>;
 

@@ -68,7 +68,7 @@ export type SpacingToken =
   | TokenConstructor<['space', SpacingScale]>
   | TokenConstructor<['space', 'negative', SpacingNegativeScale]>;
 
-type BorderRadiusScale = 'sharp' | 'none' | 'xs' | 's' | 'm' | 'l' | 'xl' | 'round' | 'full';
+type BorderRadiusScale = 'none' | 'xs' | 's' | 'm' | 'l' | 'xl' | 'full';
 export type BorderRadiusToken = TokenConstructor<['border', 'radius', BorderRadiusScale]>;
 
 type BorderWidthScale = '0' | '100' | '200' | '300' | '400';

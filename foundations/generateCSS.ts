@@ -34,8 +34,23 @@ const combineCSSVariablesInRoot = (input: string[]) => `:root {
 }
 `;
 
-const toVariableOrColorMix = <T extends string>(input: string | ColorMixTokenType<T>) =>
-  typeof input === 'string' ? `var(--${input})` : colorMixTokenValueToString(input);
+const toVariableOrColorMix = <T extends string>(input: string | ColorMixTokenType<T>) => {
+  if (typeof input === 'string') {
+    if (input.startsWith('color-') || input.startsWith('palette-')) return `var(--${input})`;
+
+    return input;
+  }
+  return colorMixTokenValueToString(input);
+};
+
+const lightDarkColor = <T extends string>(
+  light: string | ColorMixTokenType<T>,
+  dark: string | ColorMixTokenType<T>
+) => {
+  if (light === dark) return toVariableOrColorMix(light);
+
+  return `light-dark(${toVariableOrColorMix(light)}, ${toVariableOrColorMix(dark)})`;
+};
 
 /**
  * Generation of primitiveColors.css and semanticColors.css
@@ -52,8 +67,7 @@ const generateColorsCSS = () => {
 
   const colorEntries = Object.entries(colors);
   const colorCSSVariables = colorEntries.map(
-    ([token, { dark, light }]) =>
-      `--${token}: light-dark(${toVariableOrColorMix(light)}, ${toVariableOrColorMix(dark)});`
+    ([token, { dark, light }]) => `--${token}: ${lightDarkColor(light, dark)};`
   );
   fs.writeFileSync(path.join(cssRoot, 'semanticColors.css'), combineCSSVariablesInRoot(colorCSSVariables));
 };
