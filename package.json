@@ -1,0 +1,8 @@
+{
+  "scripts": {
+    "start": "ts-node foundations/generateCSS.ts"
+  },
+  "dependencies": {
+    "ts-node": "^10.9.2"
+  }
+}

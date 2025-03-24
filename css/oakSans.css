@@ -1,90 +1,10 @@
 @font-face {
   font-family: OakSans;
-  src: url(../fonts/OakSans/fonts/webfonts/OakSans-Regular.woff2);
-  font-weight: 400;
+  src: url(../fonts/OakSans/fonts/variable/OakSansVF.woff2);
 }
 
 @font-face {
   font-family: OakSans;
-  src: url(../fonts/OakSans/fonts/webfonts/OakSans-Italic.woff2);
   font-style: italic;
-  font-weight: 400;
-}
-
-@font-face {
-  font-family: OakSans;
-  src: url(../fonts/OakSans/fonts/webfonts/OakSans-Black.woff2);
-  font-weight: 900;
-}
-
-@font-face {
-  font-family: OakSans;
-  src: url(../fonts/OakSans/fonts/webfonts/OakSans-BlackItalic.woff2);
-  font-style: italic;
-  font-weight: 900;
-}
-
-@font-face {
-  font-family: OakSans;
-  src: url(../fonts/OakSans/fonts/webfonts/OakSans-Bold.woff2);
-  font-weight: 700;
-}
-
-@font-face {
-  font-family: OakSans;
-  src: url(../fonts/OakSans/fonts/webfonts/OakSans-BoldItalic.woff2);
-  font-style: italic;
-  font-weight: 700;
-}
-
-@font-face {
-  font-family: OakSans;
-  src: url(../fonts/OakSans/fonts/webfonts/OakSans-ExtraBold.woff2);
-  font-weight: 800;
-}
-
-@font-face {
-  font-family: OakSans;
-  src: url(../fonts/OakSans/fonts/webfonts/OakSans-ExtraBoldItalic.woff2);
-  font-style: italic;
-  font-weight: 800;
-}
-
-@font-face {
-  font-family: OakSans;
-  src: url(../fonts/OakSans/fonts/webfonts/OakSans-Light.woff2);
-  font-weight: 300;
-}
-
-@font-face {
-  font-family: OakSans;
-  src: url(../fonts/OakSans/fonts/webfonts/OakSans-LightItalic.woff2);
-  font-style: italic;
-  font-weight: 300;
-}
-
-@font-face {
-  font-family: OakSans;
-  src: url(../fonts/OakSans/fonts/webfonts/OakSans-Medium.woff2);
-  font-weight: 500;
-}
-
-@font-face {
-  font-family: OakSans;
-  src: url(../fonts/OakSans/fonts/webfonts/OakSans-MediumItalic.woff2);
-  font-style: italic;
-  font-weight: 500;
-}
-
-@font-face {
-  font-family: OakSans;
-  src: url(../fonts/OakSans/fonts/webfonts/OakSans-SemiBold.woff2);
-  font-weight: 600;
-}
-
-@font-face {
-  font-family: OakSans;
-  src: url(../fonts/OakSans/fonts/webfonts/OakSans-SemiBoldItalic.woff2);
-  font-style: italic;
-  font-weight: 600;
+  src: url(../fonts/OakSans/fonts/variable/OakSans-ItalicVF.woff2);
 }

@@ -1,0 +1,175 @@
+.display-l {
+  font-family: OakSans, system-ui;
+  font-weight: 550;
+  font-size: 80px;
+  line-height: 96px;
+  letter-spacing: -1.5px;
+}
+
+.display-m {
+  font-family: OakSans, system-ui;
+  font-weight: 550;
+  font-size: 60px;
+  line-height: 72px;
+  letter-spacing: -1.0px;
+}
+
+.display-s {
+  font-family: OakSans, system-ui;
+  font-weight: 550;
+  font-size: 48px;
+  line-height: 58px;
+  letter-spacing: -0.5px;
+}
+
+.heading-xl {
+  font-family: OakSans, system-ui;
+  font-weight: 550;
+  font-size: 40px;
+  line-height: 48px;
+  letter-spacing: -0.4px;
+}
+
+.heading-l {
+  font-family: OakSans, system-ui;
+  font-weight: 550;
+  font-size: 32px;
+  line-height: 40px;
+  letter-spacing: -0.2px;
+}
+
+.heading-m {
+  font-family: OakSans, system-ui;
+  font-weight: 550;
+  font-size: 28px;
+  line-height: 36px;
+  letter-spacing: -0.1px;
+}
+
+.heading-s {
+  font-family: OakSans, system-ui;
+  font-weight: 550;
+  font-size: 24px;
+  line-height: 32px;
+  letter-spacing: 0px;
+}
+
+.title-l {
+  font-family: OakSans, system-ui;
+  font-weight: 550;
+  font-size: 18px;
+  line-height: 24px;
+  letter-spacing: 0px;
+}
+
+.title-m {
+  font-family: OakSans, system-ui;
+  font-weight: 550;
+  font-size: 16px;
+  line-height: 24px;
+  letter-spacing: 0.1px;
+}
+
+.title-s {
+  font-family: OakSans, system-ui;
+  font-weight: 550;
+  font-size: 14px;
+  line-height: 20px;
+  letter-spacing: 0.2px;
+}
+
+.body-l {
+  font-family: OakSans, system-ui;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  letter-spacing: 0.3px;
+}
+
+.body-m {
+  font-family: OakSans, system-ui;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 20px;
+  letter-spacing: 0.3px;
+}
+
+.body-s {
+  font-family: OakSans, system-ui;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 16px;
+  letter-spacing: 0.4px;
+}
+
+.body-l-moderate {
+  font-family: OakSans, system-ui;
+  font-weight: 475;
+  font-size: 16px;
+  line-height: 24px;
+  letter-spacing: 0.3px;
+}
+
+.body-m-moderate {
+  font-family: OakSans, system-ui;
+  font-weight: 475;
+  font-size: 14px;
+  line-height: 20px;
+  letter-spacing: 0.3px;
+}
+
+.body-s-moderate {
+  font-family: OakSans, system-ui;
+  font-weight: 475;
+  font-size: 12px;
+  line-height: 16px;
+  letter-spacing: 0.4px;
+}
+
+.body-l-strong {
+  font-family: OakSans, system-ui;
+  font-weight: 550;
+  font-size: 16px;
+  line-height: 24px;
+  letter-spacing: 0.3px;
+}
+
+.body-m-strong {
+  font-family: OakSans, system-ui;
+  font-weight: 550;
+  font-size: 14px;
+  line-height: 20px;
+  letter-spacing: 0.3px;
+}
+
+.body-s-strong {
+  font-family: OakSans, system-ui;
+  font-weight: 550;
+  font-size: 12px;
+  line-height: 16px;
+  letter-spacing: 0.4px;
+}
+
+.label-l {
+  font-family: OakSans, system-ui;
+  font-weight: 475;
+  font-size: 14px;
+  line-height: 20px;
+  letter-spacing: 0.2px;
+}
+
+.label-m {
+  font-family: OakSans, system-ui;
+  font-weight: 475;
+  font-size: 12px;
+  line-height: 16px;
+  letter-spacing: 0.3px;
+}
+
+.label-s {
+  font-family: OakSans, system-ui;
+  font-weight: 475;
+  font-size: 10px;
+  line-height: 12px;
+  letter-spacing: 0.5px;
+}
