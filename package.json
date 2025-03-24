@@ -1,4 +1,8 @@
 {
+  "name": "kanto",
+  "license": "MIT",
+  "version": "0.0.1",
+  "author": "Walven & Pokémon Workshop",
   "scripts": {
     "start": "ts-node foundations/generateCSS.ts"
   },

@@ -1,5 +1,13 @@
 <style>
-  .docs-story {
+  .docs-story, .sb-show-main {
     background-color: var(--color-surface);
+  }
+
+  .docs-story:has(.kanto-dark), .sb-show-main:has(.kanto-dark) {
+    color-scheme: dark;
+  }
+
+  .docs-story:has(.kanto-light), .sb-show-main:has(.kanto-light) {
+    color-scheme: light;
   }
 </style>

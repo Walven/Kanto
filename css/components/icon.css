@@ -1,0 +1,61 @@
+svg.kanto-icon {
+  color: var(--color-icon);
+}
+
+.hover:hover svg.kanto-icon {
+  color: var(--color-icon-hover);
+}
+
+:disabled svg.kanto-icon,
+svg.kanto-icon.disabled {
+  color: var(--color-icon-disabled);
+}
+
+.success svg.kanto-icon,
+svg.kanto-icon.success {
+  color: var(--color-icon-success);
+}
+
+.critical svg.kanto-icon,
+svg.kanto-icon.critical {
+  color: var(--color-icon-critical);
+}
+
+.highlight svg.kanto-icon,
+svg.kanto-icon.highlight {
+  color: var(--color-icon-highlight);
+}
+
+svg.kanto-icon.static-white {
+  color: var(--color-icon-static-white);
+}
+
+svg.kanto-icon.static-black {
+  color: var(--color-icon-static-black);
+}
+
+.inverse svg.kanto-icon,
+svg.kanto-icon.inverse {
+  color: var(--color-icon-static-inverse);
+}
+
+svg.kanto-icon.size-l {
+  width: 24px;
+  height: 24px;
+}
+
+svg.kanto-icon,
+svg.kanto-icon.size-m {
+  width: 20px;
+  height: 20px;
+}
+
+svg.kanto-icon.size-s {
+  width: 16px;
+  height: 16px;
+}
+
+svg.kanto-icon.size-xs {
+  width: 12px;
+  height: 12px;
+}
