@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { Icon } from './Icon';
+import { withKantoDarkLightRenderer } from '../../.storybook/addons/KantoDarkLight';
 
 const meta = {
   title: 'Kanto/Icon',
@@ -9,8 +10,12 @@ const meta = {
   },
   tags: ['autodocs'],
   args: {
-    type: 'outline',
-    size: 'L',
+    style: 'outline',
+    size: 'm',
+  },
+  argTypes: {
+    size: { control: { type: 'select', labels: { l: 'Large', m: 'Medium', s: 'Small', xs: 'Extra Small' } } },
+    style: { control: { type: 'select', labels: { outline: 'Outline', solid: 'Solid' } } },
   },
 } satisfies Meta<typeof Icon>;
 
@@ -26,56 +31,53 @@ export const Default: Story = {
 export const Small: Story = {
   args: {
     name: 'info',
-    size: 'S',
-  },
-};
-
-export const Medium: Story = {
-  args: {
-    name: 'info',
-    size: 'M',
+    size: 's',
   },
 };
 
 export const Solid: Story = {
   args: {
     name: 'info',
-    type: 'solid',
+    style: 'solid',
   },
+};
+
+export const UsingStaticColor: Story = {
+  args: { name: 'info', color: 'static-black' },
 };
 
 export const InASuccessContainer: Story = {
   args: { name: 'check' },
-  render: (args) => (
+  render: withKantoDarkLightRenderer((args) => (
     <div className="success">
       <Icon {...args} />
     </div>
-  ),
+  )),
 };
 
 export const InACriticalContainer: Story = {
   args: { name: 'warning' },
-  render: (args) => (
+  render: withKantoDarkLightRenderer((args) => (
     <div className="critical">
       <Icon {...args} />
     </div>
-  ),
+  )),
 };
 
 export const InAHighlightContainer: Story = {
   args: { name: 'info' },
-  render: (args) => (
+  render: withKantoDarkLightRenderer((args) => (
     <div className="highlight">
       <Icon {...args} />
     </div>
-  ),
+  )),
 };
 
 export const InAHoverSensitiveElement: Story = {
   args: { name: 'add' },
-  render: (args) => (
+  render: withKantoDarkLightRenderer((args) => (
     <div className="hover" style={{ cursor: 'pointer' }}>
       <Icon {...args} />
     </div>
-  ),
+  )),
 };

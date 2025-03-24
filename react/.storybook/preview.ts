@@ -6,6 +6,7 @@ import '../../css/primitiveColors.css';
 import '../../css/semanticColors.css';
 import '../../css/border.css';
 import '../../css/spacing.css';
+import { PARAM_KEY, StoryRenderer } from './addons/KantoDarkLight';
 
 const preview: Preview = {
   parameters: {
@@ -15,7 +16,19 @@ const preview: Preview = {
         date: /Date$/,
       },
     },
+    backgrounds: {
+      disable: true,
+      options: {
+        dark: { name: 'Dark', value: 'var(--color-surface)' },
+        light: { name: 'Light', value: 'var(--color-surface)' },
+      },
+      default: 'light',
+    },
   },
+  globalTypes: {
+    [PARAM_KEY]: { type: 'string', description: 'Toggle between dark mode and light mode' },
+  },
+  render: StoryRenderer,
 };
 
 export default preview;

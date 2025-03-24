@@ -6,6 +6,7 @@ import { ColorMixTokenType, colorMixTokenValueToString } from './tokenTypes';
 import { colors } from './colors';
 import { borderRadiuses, borderWidths } from './border';
 import { spacing } from './spacing';
+import { iconColorSelectors, iconSizeSelectors } from './components/icon';
 
 const cssRoot = path.join(__dirname, '..', 'css');
 
@@ -95,7 +96,24 @@ const generateSpacingCSS = () => {
   fs.writeFileSync(path.join(cssRoot, 'spacing.css'), combineCSSVariablesInRoot(variables));
 };
 
+const toCSSRule = (selectors: string[], rules: string[]) => `${selectors.join(',\n')} {\n  ${rules.join('\n  ')}\n}`;
+
+/**
+ * Generation of components/icon.css
+ */
+const generateComponentIconCSS = () => {
+  const colorEntries = Object.entries(iconColorSelectors);
+  const colorRules = colorEntries.map(([token, selectors]) => toCSSRule(selectors, [`color: var(--${token});`]));
+  const sizeEntries = Object.entries(iconSizeSelectors);
+  const sizeRules = sizeEntries.map(([size, selectors]) =>
+    toCSSRule(selectors, [`width: ${size};`, `height: ${size};`])
+  );
+
+  fs.writeFileSync(path.join(cssRoot, 'components/icon.css'), colorRules.concat(sizeRules).join('\n\n'));
+};
+
 generateTypographyCSS();
 generateColorsCSS();
 generateBorderCSS();
 generateSpacingCSS();
+generateComponentIconCSS();
