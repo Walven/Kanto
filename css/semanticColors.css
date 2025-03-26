@@ -164,6 +164,7 @@
   --color-icon: var(--color-alias-neutral-10);
   --color-icon-hover: var(--color-alias-neutral-11);
   --color-icon-disabled: var(--color-alias-neutral-9);
+  --color-icon-accent: var(--color-alias-accent-11);
   --color-icon-success: var(--color-alias-success-11);
   --color-icon-critical: var(--color-alias-critical-11);
   --color-icon-highlight: var(--color-alias-highlight-11);

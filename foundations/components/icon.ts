@@ -1,9 +1,8 @@
-import type { ColorIconToken } from '../token';
-import type { PixelUnitTokenType } from '../tokenTypes';
-import { ParentSelectorPseudoClasses } from './common';
+import { CSSRules, ParentSelectorPseudoClasses } from './common';
 
 export type IconColorProp =
   | 'success'
+  | 'accent'
   | 'critical'
   | 'highlight'
   | 'static-black'
@@ -18,21 +17,19 @@ type CSSSelector =
   | `svg.kanto-icon.${IconColorProp | `size-${IconSizeProp}`}`
   | 'svg.kanto-icon';
 
-export const iconColorSelectors: Record<ColorIconToken, CSSSelector[]> = {
-  'color-icon': ['svg.kanto-icon'],
-  'color-icon-hover': ['.hover:hover svg.kanto-icon'],
-  'color-icon-disabled': [':disabled svg.kanto-icon', 'svg.kanto-icon.disabled'],
-  'color-icon-success': ['.success svg.kanto-icon', 'svg.kanto-icon.success'],
-  'color-icon-critical': ['.critical svg.kanto-icon', 'svg.kanto-icon.critical'],
-  'color-icon-highlight': ['.highlight svg.kanto-icon', 'svg.kanto-icon.highlight'],
-  'color-icon-static-white': ['svg.kanto-icon.static-white'],
-  'color-icon-static-black': ['svg.kanto-icon.static-black'],
-  'color-icon-static-inverse': ['.inverse svg.kanto-icon', 'svg.kanto-icon.inverse'],
-};
-
-export const iconSizeSelectors: Partial<Record<PixelUnitTokenType, CSSSelector[]>> = {
-  '24px': ['svg.kanto-icon.size-l'],
-  '20px': ['svg.kanto-icon', 'svg.kanto-icon.size-m'],
-  '16px': ['svg.kanto-icon.size-s'],
-  '12px': ['svg.kanto-icon.size-xs'],
-};
+export const iconRules: CSSRules<CSSSelector> = [
+  ['svg.kanto-icon', { color: 'color-icon' }],
+  ['.hover:hover svg.kanto-icon', { color: 'color-icon-hover' }],
+  [[':disabled svg.kanto-icon', 'svg.kanto-icon.disabled'], { color: 'color-icon-disabled' }],
+  [['.accent svg.kanto-icon', 'svg.kanto-icon.accent'], { color: 'color-icon-accent' }],
+  [['.success svg.kanto-icon', 'svg.kanto-icon.success'], { color: 'color-icon-success' }],
+  [['.critical svg.kanto-icon', 'svg.kanto-icon.critical'], { color: 'color-icon-critical' }],
+  [['.highlight svg.kanto-icon', 'svg.kanto-icon.highlight'], { color: 'color-icon-highlight' }],
+  ['svg.kanto-icon.static-white', { color: 'color-icon-static-white' }],
+  ['svg.kanto-icon.static-black', { color: 'color-icon-static-black' }],
+  [['.inverse svg.kanto-icon', 'svg.kanto-icon.inverse'], { color: 'color-icon-static-inverse' }],
+  ['svg.kanto-icon.size-l', { width: '24px', height: '24px' }],
+  [['svg.kanto-icon', 'svg.kanto-icon.size-m'], { width: '20px', height: '20px' }],
+  ['svg.kanto-icon.size-s', { width: '16px', height: '16px' }],
+  ['svg.kanto-icon.size-xs', { width: '12px', height: '12px' }],
+];

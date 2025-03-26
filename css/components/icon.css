@@ -11,6 +11,11 @@ svg.kanto-icon.disabled {
   color: var(--color-icon-disabled);
 }
 
+.accent svg.kanto-icon,
+svg.kanto-icon.accent {
+  color: var(--color-icon-accent);
+}
+
 .success svg.kanto-icon,
 svg.kanto-icon.success {
   color: var(--color-icon-success);

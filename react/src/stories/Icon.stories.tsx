@@ -14,8 +14,8 @@ const meta = {
     size: 'm',
   },
   argTypes: {
-    size: { control: { type: 'select', labels: { l: 'Large', m: 'Medium', s: 'Small', xs: 'Extra Small' } } },
-    style: { control: { type: 'select', labels: { outline: 'Outline', solid: 'Solid' } } },
+    size: { control: { type: 'select' } },
+    style: { control: { type: 'select' } },
   },
 } satisfies Meta<typeof Icon>;
 
