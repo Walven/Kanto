@@ -14,7 +14,7 @@ const config: StorybookConfig = {
   async viteFinal(config) {
     return mergeConfig(config, {
       server: {
-        fs: { allow: (config.server?.fs?.allow ?? []).concat(['../fonts/OakSans/fonts/webFonts', workspace]) },
+        fs: { allow: (config.server?.fs?.allow ?? []).concat(['../fonts/OakSans/fonts/variable', workspace]) },
       },
     });
   },

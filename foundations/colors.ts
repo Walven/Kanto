@@ -231,6 +231,8 @@ export const colors = {
   'color-icon': { light: 'color-alias-neutral-10', dark: 'color-alias-neutral-10' },
   'color-icon-hover': { light: 'color-alias-neutral-11', dark: 'color-alias-neutral-11' },
   'color-icon-disabled': { light: 'color-alias-neutral-9', dark: 'color-alias-neutral-9' },
+  // Color/Icon/Accent
+  'color-icon-accent': { light: 'color-alias-accent-11', dark: 'color-alias-accent-11' },
   // Color/Icon/Success
   'color-icon-success': { light: 'color-alias-success-11', dark: 'color-alias-success-11' },
   // Color/Icon/Critical

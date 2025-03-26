@@ -23,12 +23,23 @@ import { ReactComponent as WarningOutline } from 'kanto/icons/outline/Warning.sv
 import { ReactComponent as WarningSolid } from 'kanto/icons/solid/Warning.svg';
 import type { IconSizeProp, IconColorProp } from 'kanto/foundations/components/icon';
 
-type IconName = 'add' | 'close' | 'circle' | 'minus' | 'clear' | 'check' | 'info' | 'warning' | 'chevronRight' | 'chevronDown' | 'externalLink';
+export type IconNameProp =
+  | 'add'
+  | 'close'
+  | 'circle'
+  | 'minus'
+  | 'clear'
+  | 'check'
+  | 'info'
+  | 'warning'
+  | 'chevronRight'
+  | 'chevronDown'
+  | 'externalLink';
 type IconStyle = 'outline' | 'solid';
 
 type IconProps = {
   /** Name of the icon to show */
-  name: IconName;
+  name: IconNameProp;
   /** Style of icon, defaults to outline */
   style?: IconStyle;
   /** Size of the icon */
