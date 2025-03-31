@@ -1,42 +1,59 @@
 import 'kanto/css/components/badge.css';
 import type { BadgeTypeProp, BadgeStyleProp, BadgeSizeProp } from 'kanto/foundations/components/badge';
-import { Icon, type IconNameProp } from './Icon';
-import { IconColorProp } from '../../../foundations/components/icon';
+import { Icon, type IconProps } from './Icon';
+import { IconColorProp, IconSizeProp } from '../../../foundations/components/icon';
+
+export type BadgeFeature = { type: 'icon'; position?: 'before' | 'after' } & Omit<IconProps, 'color' | 'size'>;
+
+type SizeWithoutXs = Exclude<BadgeSizeProp, 'xs'>;
 
 export type BadgeProps = {
   type: BadgeTypeProp;
   style: BadgeStyleProp;
-  size: BadgeSizeProp;
-  label?: string;
-  icon?: IconNameProp;
-};
+} & (
+  | {
+      size: 'xs';
+      label: string;
+      features?: undefined;
+    }
+  | {
+      size: SizeWithoutXs;
+      label: string;
+      features?: BadgeFeature[];
+    }
+  | {
+      size: SizeWithoutXs;
+      label?: undefined;
+      features: [BadgeFeature, ...BadgeFeature[]];
+    }
+);
 
 const isIconStyle = (style: string): style is IconColorProp => ['accent', 'critical', 'success', 'highlight'].includes(style);
 
-export const Badge = ({ type, style, size, label, icon }: BadgeProps) => {
-  const className = `kanto-badge color-${type} size-${size} ${style}`;
-  const renderIcon = () => {
-    if (size === 'xs' || !icon) return undefined;
-    const solidIconColor = style === 'solid' ? 'static-white' : undefined;
-    const definitiveIconColor = solidIconColor ?? (isIconStyle(type) ? type : undefined);
-    return <Icon name={icon} size={size} color={definitiveIconColor} />;
-  };
-  const renderLabel = () => (label ? <span className="label-m">{label}</span> : undefined);
+type RenderIconFeaturesProps = {
+  features?: BadgeFeature[];
+  position: NonNullable<BadgeFeature['position']>;
+  size: IconSizeProp;
+  color?: IconColorProp;
+};
 
-  if (!label) {
-    if (size === 'xs')
-      return (
-        <span className="kanto-badge solid color-critical">
-          <span className="label-m">Label required in xs</span>
-        </span>
-      );
-    return <span className={`${className} icon-only`}>{renderIcon()}</span>;
-  }
+const RenderBadgeFeatures = ({ features, position, color, size }: RenderIconFeaturesProps) => {
+  if (!features || size === 'xs') return undefined;
+
+  const isBefore = position === 'before';
+  return features.filter((f) => (f.position ? f.position === position : isBefore)).map((f) => <Icon color={color} size={size} {...f} />);
+};
+
+export const Badge = ({ type, style, size, label, features }: BadgeProps) => {
+  const className = `kanto-badge color-${type} size-${size} ${style}`;
+  const solidIconColor = style === 'solid' ? 'static-white' : undefined;
+  const definitiveIconColor = solidIconColor ?? (isIconStyle(type) ? type : undefined);
 
   return (
-    <span className={className}>
-      {renderIcon()}
-      {renderLabel()}
+    <span className={label ? className : `${className} icon-only`}>
+      <RenderBadgeFeatures features={features} position="before" color={definitiveIconColor} size={size} />
+      {label ? <span className="label-m">{label}</span> : undefined}
+      <RenderBadgeFeatures features={features} position="after" color={definitiveIconColor} size={size} />
     </span>
   );
 };

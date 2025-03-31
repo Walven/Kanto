@@ -37,7 +37,7 @@ export type IconNameProp =
   | 'externalLink';
 type IconStyle = 'outline' | 'solid';
 
-type IconProps = {
+export type IconProps = {
   /** Name of the icon to show */
   name: IconNameProp;
   /** Style of icon, defaults to outline */
