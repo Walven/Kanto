@@ -17,11 +17,12 @@ type CSSSelector =
   | BadgeLeafCSSSelector
   | BadgeContainerCSSSelector
   | `${BadgeContainerCSSSelector}.icon-only`
+  | `${BadgeContainerCSSSelector} > svg[class="kanto-icon"]`
   | `span.kanto-badge.color-${BadgeTypeProp}.${BadgeStyleProp}`
   | `span.kanto-badge.${BadgeStyleProp}`
   | `span.kanto-badge.color-${BadgeTypeProp}`
-  | `span.kanto-badge.color-${BadgeTypeProp} > svg.kanto-icon`
-  | `span.kanto-badge.color-${BadgeTypeProp}.solid > svg.kanto-icon`
+  | `span.kanto-badge.color-${BadgeTypeProp} > svg[class="kanto-icon"]`
+  | `span.kanto-badge.color-${BadgeTypeProp}.solid > svg[class="kanto-icon"]`
   | 'span.kanto-badge'
   | 'span.kanto-badge.icon-only';
 
@@ -61,6 +62,7 @@ export const badgeRules: CSSRules<CSSSelector> = [
   ['span.kanto-badge.size-m > span', { padding: BADGE_LEAF_PADDING.m }],
   ['span.kanto-badge.size-s', { height: BADGE_SIZE.s }],
   ['span.kanto-badge.size-s.icon-only', { width: BADGE_SIZE.s, justifyContent: 'center' }],
+  ['span.kanto-badge.size-s > svg[class="kanto-icon"]', { width: '16px', height: '16px' }], // TODO: token for icon size!
   ['span.kanto-badge.size-s > span', { padding: BADGE_LEAF_PADDING.s }],
   ['span.kanto-badge.size-xs', { height: BADGE_SIZE.xs }],
   ['span.kanto-badge.size-xs > span', { padding: BADGE_LEAF_PADDING.xs }],
@@ -97,17 +99,31 @@ export const badgeRules: CSSRules<CSSSelector> = [
   ],
   // Outline
   ['span.kanto-badge.outline', borderAndBackground('color-border-subtle')],
+  // Icon non Solid
+  ['span.kanto-badge.color-accent > svg[class="kanto-icon"]', { color: 'color-icon-accent' }],
+  ['span.kanto-badge.color-success > svg[class="kanto-icon"]', { color: 'color-icon-success' }],
+  ['span.kanto-badge.color-critical > svg[class="kanto-icon"]', { color: 'color-icon-critical' }],
+  ['span.kanto-badge.color-highlight > svg[class="kanto-icon"]', { color: 'color-icon-highlight' }],
   // Solid
   [
     [
       'span.kanto-badge.color-neutral.solid',
       'span.kanto-badge.color-accent.solid',
-      'span.kanto-badge.color-accent.solid > svg.kanto-icon',
       'span.kanto-badge.color-success.solid',
       'span.kanto-badge.color-critical.solid',
       'span.kanto-badge.color-highlight.solid',
     ],
     { color: 'color-text-static-white' },
+  ],
+  [
+    [
+      'span.kanto-badge.color-neutral.solid > svg[class="kanto-icon"]',
+      'span.kanto-badge.color-accent.solid > svg[class="kanto-icon"]',
+      'span.kanto-badge.color-success.solid > svg[class="kanto-icon"]',
+      'span.kanto-badge.color-critical.solid > svg[class="kanto-icon"]',
+      'span.kanto-badge.color-highlight.solid > svg[class="kanto-icon"]',
+    ],
+    { color: 'color-icon-static-white' },
   ],
   ['span.kanto-badge.color-neutral.solid', { backgroundColor: 'color-background-strong' }],
   ['span.kanto-badge.color-accent.solid', { backgroundColor: 'color-background-accent-strong' }],
@@ -124,7 +140,7 @@ export const badgeRules: CSSRules<CSSSelector> = [
   ]),
   // Decorative text color
   ...BADGE_DECORATION_COLORS.map((c): CSSRules<CSSSelector>[number] => [
-    [`span.kanto-badge.color-decorative-${c}`, `span.kanto-badge.color-decorative-${c} > svg.kanto-icon`],
+    [`span.kanto-badge.color-decorative-${c}`, `span.kanto-badge.color-decorative-${c} > svg[class="kanto-icon"]`],
     { color: { light: `palette-${c}-13`, dark: `palette-${c}dark-13` } },
   ]),
 ];

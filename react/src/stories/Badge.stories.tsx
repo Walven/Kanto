@@ -1,6 +1,8 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { Badge } from './Badge';
 import { BADGE_DECORATION_COLORS } from '../../../foundations/components/badge';
+import { Icon } from './Icon';
+import { Label } from './Label';
 
 const meta = {
   title: 'Kanto/Badge',
@@ -13,8 +15,13 @@ const meta = {
     size: { options: ['m', 's', 'xs'], control: 'select' },
     style: { control: { type: 'select' } },
     type: { options: ['neutral', 'accent', 'success', 'critical', 'highlight', ...BADGE_DECORATION_COLORS.map((v) => `decorative-${v}`)] },
-    features: {
-      description: 'All the features added to badge.  \n*Cannot be set when `size="xs"`*',
+    children: {
+      options: ['With Icon', 'Without Icon', 'Without Label'],
+      mapping: {
+        'With Icon': [<Icon name="circle" />, <Label>Badge</Label>],
+        'Without Icon': <Label>Badge</Label>,
+        'Without Label': <Icon name="circle" />,
+      },
     },
   },
 } satisfies Meta<typeof Badge>;
@@ -27,8 +34,8 @@ export const SolidNeutral: Story = {
     type: 'neutral',
     style: 'solid',
     size: 'm',
-    label: 'Badge',
-    features: [{ type: 'icon', name: 'circle' }],
+    icon: 'icon',
+    children: [<Icon name="circle" />, <Label>Badge</Label>],
   },
 };
 
@@ -37,7 +44,7 @@ export const WithNoIcon: Story = {
     type: 'critical',
     style: 'solid',
     size: 'xs',
-    label: '12',
+    children: <Label>12</Label>,
   },
 };
 
@@ -46,7 +53,11 @@ export const IconOnly: Story = {
     type: 'accent',
     style: 'soft',
     size: 's',
-    features: [{ type: 'icon', name: 'info' }],
+    icon: 'icon-only',
+    children: <Icon name="circle" />,
+  },
+  parameters: {
+    docs: { description: { story: 'Badge in `xs` size is not supported.' } },
   },
 };
 
@@ -54,9 +65,8 @@ export const UsingDecorativeColor: Story = {
   args: {
     type: 'decorative-fuchsia',
     style: 'soft',
-    label: 'Label',
-    features: [{ type: 'icon', name: 'clear' }],
     size: 'm',
+    children: [<Icon name="circle" />, <Label>Badge</Label>],
   },
   parameters: {
     docs: { description: { story: 'Does not support solid style on the badge itself. (Solid icon remain supported in features.)' } },
@@ -67,12 +77,12 @@ export const IllegalBadge: Story = {
   args: {
     type: 'decorative-olive',
     style: 'soft',
-    label: 'Usually not happening',
     size: 'm',
-    features: [
-      { type: 'icon', name: 'clear', style: 'solid' },
-      { type: 'icon', name: 'circle' },
-      { type: 'icon', name: 'close', position: 'after' },
+    children: [
+      <Icon name="clear" style="solid" />,
+      <Icon name="circle" color="static-black" />,
+      <Label>Usually not happening</Label>,
+      <Icon name="close" />,
     ],
   },
 };
