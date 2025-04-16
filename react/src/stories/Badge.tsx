@@ -1,5 +1,5 @@
 import 'kanto/css/components/badge.css';
-import type { BadgeTypeProp, BadgeStyleProp, BadgeSizeProp } from 'kanto/foundations/components/badge';
+import type { BadgeTypeProp, BadgeStyleProp, BadgeSizeProp } from 'kanto/components/badge';
 import { ReactNode } from 'react';
 
 export type BadgeProps = {

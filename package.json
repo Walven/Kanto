@@ -4,7 +4,7 @@
   "version": "0.0.1",
   "author": "Walven & Pokémon Workshop",
   "scripts": {
-    "start": "ts-node foundations/generateCSS.ts"
+    "start": "ts-node components/generateCSS.ts"
   },
   "dependencies": {
     "ts-node": "^10.9.2"

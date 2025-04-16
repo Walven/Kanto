@@ -21,7 +21,7 @@ import { ReactComponent as MinusOutline } from 'kanto/icons/outline/Minus.svg';
 import { ReactComponent as MinusSolid } from 'kanto/icons/solid/Minus.svg';
 import { ReactComponent as WarningOutline } from 'kanto/icons/outline/Warning.svg';
 import { ReactComponent as WarningSolid } from 'kanto/icons/solid/Warning.svg';
-import type { IconSizeProp, IconColorProp } from 'kanto/foundations/components/icon';
+import type { IconSizeProp, IconColorProp } from 'kanto/components/icon';
 
 export type IconNameProp =
   | 'add'

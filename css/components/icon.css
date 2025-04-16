@@ -1,3 +1,24 @@
+svg.kanto-icon.size-l {
+  width: 24px;
+  height: 24px;
+}
+
+svg.kanto-icon,
+svg.kanto-icon.size-m {
+  width: 20px;
+  height: 20px;
+}
+
+svg.kanto-icon.size-s {
+  width: 16px;
+  height: 16px;
+}
+
+svg.kanto-icon.size-xs {
+  width: 12px;
+  height: 12px;
+}
+
 svg.kanto-icon {
   color: var(--color-icon);
 }
@@ -42,25 +63,4 @@ svg.kanto-icon.static-black {
 .inverse svg.kanto-icon,
 svg.kanto-icon.inverse {
   color: var(--color-icon-static-inverse);
-}
-
-svg.kanto-icon.size-l {
-  width: 24px;
-  height: 24px;
-}
-
-svg.kanto-icon,
-svg.kanto-icon.size-m {
-  width: 20px;
-  height: 20px;
-}
-
-svg.kanto-icon.size-s {
-  width: 16px;
-  height: 16px;
-}
-
-svg.kanto-icon.size-xs {
-  width: 12px;
-  height: 12px;
 }

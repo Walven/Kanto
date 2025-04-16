@@ -1,5 +1,5 @@
-import { BorderRadiusToken, BorderWidthToken, ColorToken, PaletteToken, SpacingToken } from '../token';
-import { PixelUnitTokenType } from '../tokenTypes';
+import { BorderRadiusToken, BorderWidthToken, ColorToken, PaletteToken, SpacingToken } from '../foundations/token';
+import { PixelUnitTokenType } from '../foundations/tokenTypes';
 
 export type ParentSelectorPseudoClasses =
   | '.hover:hover' // Parent accepting hover behavior and being hovered
@@ -13,8 +13,8 @@ export type CSSProperties = Partial<{
   height: PixelUnitTokenType | SpacingToken;
   color: Color;
   backgroundColor: Color;
-  // TODO: specify each border types
-  border: { size: BorderWidthToken; color: Color };
+  borderWidth: BorderWidthToken;
+  borderColor: Color;
   borderRadius: BorderRadiusToken;
   padding: Padding;
   gap: SpacingToken;
@@ -37,7 +37,14 @@ const toCSSPropertyStrings = (p: CSSProperties): string => {
   if (p.height) out.push(`height: ${pixelOrSpaceToString(p.height)};`);
   if (p.color) out.push(`color: ${colorToString(p.color)};`);
   if (p.backgroundColor) out.push(`background-color: ${colorToString(p.backgroundColor)};`);
-  if (p.border) out.push(`border: solid var(--${p.border.size}) ${colorToString(p.border.color)};`);
+  if (p.borderWidth && p.borderColor) {
+    out.push(`border: solid var(--${p.borderWidth}) ${colorToString(p.borderColor)};`);
+  } else if (p.borderWidth) {
+    out.push(`border-width: var(--${p.borderWidth});`);
+    out.push(`border-style: solid;`); // TODO: Better implementation
+  } else if (p.borderColor) {
+    out.push(`border-color: ${colorToString(p.borderColor)};`);
+  }
   if (p.borderRadius) out.push(`border-radius: var(--${p.borderRadius});`);
   if (p.padding) out.push(`padding: ${paddingToString(p.padding)};`);
   if (p.gap) out.push(`gap: var(--${p.gap});`);

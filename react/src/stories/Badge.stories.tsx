@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { Badge } from './Badge';
-import { BADGE_DECORATION_COLORS } from '../../../foundations/components/badge';
+import { BADGE_DECORATION_COLORS } from '../../../components/badge';
 import { Icon } from './Icon';
 import { Label } from './Label';
 
