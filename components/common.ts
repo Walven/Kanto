@@ -1,5 +1,15 @@
-import { BorderRadiusToken, BorderWidthToken, ColorToken, PaletteToken, SpacingToken } from '../foundations/token';
+import {
+  BorderRadiusToken,
+  BorderWidthToken,
+  ColorToken,
+  PaletteToken,
+  SizeHeightToken,
+  SizeWidthToken,
+  SpacingToken,
+} from '../foundations/token';
 import { PixelUnitTokenType } from '../foundations/tokenTypes';
+import { BadgeSizeToken } from './badge';
+import { IconSizeToken } from './icon';
 
 export type ParentSelectorPseudoClasses =
   | '.hover:hover' // Parent accepting hover behavior and being hovered
@@ -9,8 +19,8 @@ type Color = ColorToken | PaletteToken | { light: ColorToken | PaletteToken; dar
 type Padding = SpacingToken | { block: SpacingToken; inline: SpacingToken };
 
 export type CSSProperties = Partial<{
-  width: PixelUnitTokenType | SpacingToken;
-  height: PixelUnitTokenType | SpacingToken;
+  width: SizeWidthToken | IconSizeToken | BadgeSizeToken;
+  height: SizeHeightToken | IconSizeToken | BadgeSizeToken;
   color: Color;
   backgroundColor: Color;
   borderWidth: BorderWidthToken;
@@ -23,7 +33,8 @@ export type CSSProperties = Partial<{
   boxSizing: 'border-box';
   justifyContent: 'center';
   alignItems: 'center';
-}>;
+}> &
+  Record<`--${string}`, string>;
 
 const pixelOrSpaceToString = (v: PixelUnitTokenType | SpacingToken) => (v.endsWith('px') ? v : `var(--${v})`);
 const colorToString = (v: Color) =>
@@ -33,8 +44,8 @@ const paddingToString = (v: Padding) =>
 
 const toCSSPropertyStrings = (p: CSSProperties): string => {
   const out: string[] = [];
-  if (p.width) out.push(`width: ${pixelOrSpaceToString(p.width)};`);
-  if (p.height) out.push(`height: ${pixelOrSpaceToString(p.height)};`);
+  if (p.width) out.push(`width: var(--${p.width});`);
+  if (p.height) out.push(`height: var(--${p.height});`);
   if (p.color) out.push(`color: ${colorToString(p.color)};`);
   if (p.backgroundColor) out.push(`background-color: ${colorToString(p.backgroundColor)};`);
   if (p.borderWidth && p.borderColor) {
@@ -53,6 +64,10 @@ const toCSSPropertyStrings = (p: CSSProperties): string => {
   if (p.boxSizing) out.push(`box-sizing: ${p.boxSizing};`);
   if (p.justifyContent) out.push(`justify-content: ${p.justifyContent};`);
   if (p.alignItems) out.push(`align-items: ${p.alignItems};`);
+  const variableKeys = Object.keys(p).filter((k) => k.startsWith('--'));
+  variableKeys.forEach((k) => {
+    out.push(`${k}: ${p[k]};`);
+  });
   return out.join('\n  ');
 };
 

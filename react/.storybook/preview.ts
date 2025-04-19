@@ -6,6 +6,7 @@ import '../../css/primitiveColors.css';
 import '../../css/semanticColors.css';
 import '../../css/border.css';
 import '../../css/spacing.css';
+import '../../css/size.css';
 import { PARAM_KEY, StoryRenderer } from './addons/KantoDarkLight';
 
 const preview: Preview = {

@@ -1,5 +1,6 @@
 import { ColorType } from '../foundations/colors';
-import type { SpacingToken } from '../foundations/token';
+import type { SpacingToken, TokenConstructor } from '../foundations/token';
+import { PixelUnitTokenType } from '../foundations/tokenTypes';
 import { CSSRules } from './common';
 
 // prettier-ignore
@@ -9,6 +10,7 @@ type BadgeDecorativeType = `decorative-${BadgeDecorationColor}`;
 export type BadgeTypeProp = ColorType | BadgeDecorativeType;
 export type BadgeStyleProp = 'solid' | 'soft' | 'outline' | 'ghost';
 export type BadgeSizeProp = 'm' | 's' | 'xs';
+export type BadgeSizeToken = TokenConstructor<['badge', 'size', BadgeSizeProp]>;
 
 type BadgeLeafCSSSelector = `span.kanto-badge.size-${BadgeSizeProp} > span`;
 type BadgeContainerCSSSelector = `span.kanto-badge.size-${BadgeSizeProp}`;
@@ -27,10 +29,10 @@ type CSSSelector =
   | 'span.kanto-badge.icon-only';
 
 const BADGE_SIZE = {
-  m: 'space-600',
-  s: 'space-500',
-  xs: 'space-400',
-} satisfies Record<BadgeSizeProp, SpacingToken>;
+  '--badge-size-m': '24px',
+  '--badge-size-s': '20px',
+  '--badge-size-xs': '16px',
+} satisfies Record<`--${BadgeSizeToken}`, PixelUnitTokenType>;
 
 const BADGE_LEAF_PADDING = {
   m: { block: 'space-0', inline: 'space-100' },
@@ -47,16 +49,17 @@ export const badgeRules: CSSRules<CSSSelector> = [
       boxSizing: 'border-box',
       alignItems: 'center',
       display: 'flex',
+      ...BADGE_SIZE,
     },
   ],
   ['span.kanto-badge.icon-only', { justifyContent: 'center' }],
   // Size
-  ['span.kanto-badge.size-m', { height: BADGE_SIZE.m }],
-  ['span.kanto-badge.size-m.icon-only', { width: BADGE_SIZE.m }],
-  ['span.kanto-badge.size-s', { height: BADGE_SIZE.s }],
-  ['span.kanto-badge.size-s.icon-only', { width: BADGE_SIZE.s }],
-  ['span.kanto-badge.size-xs', { height: BADGE_SIZE.xs }],
-  ['span.kanto-badge.size-s > svg[class="kanto-icon"]', { width: '16px', height: '16px' }], // TODO: token for icon size!
+  ['span.kanto-badge.size-m', { height: 'badge-size-m' }],
+  ['span.kanto-badge.size-m.icon-only', { width: 'badge-size-m' }],
+  ['span.kanto-badge.size-s', { height: 'badge-size-s' }],
+  ['span.kanto-badge.size-s.icon-only', { width: 'badge-size-s' }],
+  ['span.kanto-badge.size-xs', { height: 'badge-size-xs' }],
+  ['span.kanto-badge.size-s > svg[class="kanto-icon"]', { width: 'icon-size-s', height: 'icon-size-s' }],
   // Padding
   ['span.kanto-badge.icon-only', { padding: { block: 'space-0', inline: 'space-0' } }],
   ['span.kanto-badge.size-m > span', { padding: BADGE_LEAF_PADDING.m }],
