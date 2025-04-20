@@ -14,7 +14,7 @@ export type IconColorProp =
 export type IconSizeProp = 'l' | 'm' | 's' | 'xs';
 export type IconSizeToken = TokenConstructor<['icon', 'size', IconSizeProp]>;
 
-const ICON_SIZES = {
+const ICON_TOKEN_VALUES = {
   '--icon-size-l': '24px',
   '--icon-size-m': '20px',
   '--icon-size-s': '16px',
@@ -28,7 +28,7 @@ type CSSSelector =
   | 'svg.kanto-icon';
 
 export const iconRules: CSSRules<CSSSelector> = [
-  ['svg.kanto-icon', ICON_SIZES],
+  ['svg.kanto-icon', ICON_TOKEN_VALUES],
   // Size
   ['svg.kanto-icon.size-l', { width: 'icon-size-l', height: 'icon-size-l' }],
   [['svg.kanto-icon', 'svg.kanto-icon.size-m'], { width: 'icon-size-m', height: 'icon-size-m' }],

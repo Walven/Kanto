@@ -28,7 +28,7 @@ type CSSSelector =
   | 'span.kanto-badge'
   | 'span.kanto-badge.icon-only';
 
-const BADGE_SIZE = {
+const BADGE_TOKEN_VALUES = {
   '--badge-size-m': '24px',
   '--badge-size-s': '20px',
   '--badge-size-xs': '16px',
@@ -49,7 +49,7 @@ export const badgeRules: CSSRules<CSSSelector> = [
       boxSizing: 'border-box',
       alignItems: 'center',
       display: 'flex',
-      ...BADGE_SIZE,
+      ...BADGE_TOKEN_VALUES,
     },
   ],
   ['span.kanto-badge.icon-only', { justifyContent: 'center' }],
