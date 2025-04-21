@@ -3,6 +3,9 @@ span.kanto-badge {
   display: flex;
   box-sizing: border-box;
   align-items: center;
+  --badge-size-m: 24px;
+  --badge-size-s: 20px;
+  --badge-size-xs: 16px;
 }
 
 span.kanto-badge.icon-only {
@@ -10,28 +13,28 @@ span.kanto-badge.icon-only {
 }
 
 span.kanto-badge.size-m {
-  height: var(--space-600);
+  height: var(--badge-size-m);
 }
 
 span.kanto-badge.size-m.icon-only {
-  width: var(--space-600);
+  width: var(--badge-size-m);
 }
 
 span.kanto-badge.size-s {
-  height: var(--space-500);
+  height: var(--badge-size-s);
 }
 
 span.kanto-badge.size-s.icon-only {
-  width: var(--space-500);
+  width: var(--badge-size-s);
 }
 
 span.kanto-badge.size-xs {
-  height: var(--space-400);
+  height: var(--badge-size-xs);
 }
 
 span.kanto-badge.size-s > svg[class="kanto-icon"] {
-  width: 16px;
-  height: 16px;
+  width: var(--icon-size-s);
+  height: var(--icon-size-s);
 }
 
 span.kanto-badge.icon-only {

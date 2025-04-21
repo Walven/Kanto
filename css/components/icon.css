@@ -1,22 +1,29 @@
+svg.kanto-icon {
+  --icon-size-l: 24px;
+  --icon-size-m: 20px;
+  --icon-size-s: 16px;
+  --icon-size-xs: 12px;
+}
+
 svg.kanto-icon.size-l {
-  width: 24px;
-  height: 24px;
+  width: var(--icon-size-l);
+  height: var(--icon-size-l);
 }
 
 svg.kanto-icon,
 svg.kanto-icon.size-m {
-  width: 20px;
-  height: 20px;
+  width: var(--icon-size-m);
+  height: var(--icon-size-m);
 }
 
 svg.kanto-icon.size-s {
-  width: 16px;
-  height: 16px;
+  width: var(--icon-size-s);
+  height: var(--icon-size-s);
 }
 
 svg.kanto-icon.size-xs {
-  width: 12px;
-  height: 12px;
+  width: var(--icon-size-xs);
+  height: var(--icon-size-xs);
 }
 
 svg.kanto-icon {

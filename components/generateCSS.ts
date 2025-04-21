@@ -6,6 +6,7 @@ import { ColorMixTokenType, colorMixTokenValueToString } from '../foundations/to
 import { colors } from '../foundations/colors';
 import { borderRadiuses, borderWidths } from '../foundations/border';
 import { spacing } from '../foundations/spacing';
+import { sizeWidth, sizeHeight } from '../foundations/size';
 import { iconRules } from './icon';
 import { rulesToCSS } from './common';
 import { badgeRules } from './badge';
@@ -98,7 +99,16 @@ const generateSpacingCSS = () => {
   fs.writeFileSync(path.join(cssRoot, 'spacing.css'), combineCSSVariablesInRoot(variables));
 };
 
-const toCSSRule = (selectors: string[], rules: string[]) => `${selectors.join(',\n')} {\n  ${rules.join('\n  ')}\n}`;
+/**
+ * Generation of size.css
+ */
+const generateSizeCSS = () => {
+  const sizeHeightEntries = Object.entries(sizeHeight);
+  const sizeWidthEntries = Object.entries(sizeWidth);
+  const variables = [...sizeHeightEntries, ...sizeWidthEntries].map(([token, value]) => `--${token}: ${value};`);
+
+  fs.writeFileSync(path.join(cssRoot, 'size.css'), combineCSSVariablesInRoot(variables));
+};
 
 /**
  * Generation of components/*.css
@@ -112,4 +122,5 @@ generateTypographyCSS();
 generateColorsCSS();
 generateBorderCSS();
 generateSpacingCSS();
+generateSizeCSS();
 generateComponentCSS();

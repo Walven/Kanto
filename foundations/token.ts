@@ -68,6 +68,13 @@ export type SpacingToken =
   | TokenConstructor<['space', SpacingScale]>
   | TokenConstructor<['space', 'negative', SpacingNegativeScale]>;
 
+// prettier-ignore
+type SizeHeightScale = '0' | '25' | '50' | '100' | '200' | '300' | '400' | '500' | '600' | '800' | '1000' | '1200' | '1600';
+type SizeWidthScale = '600' | '800' | '1000' | '1200' | '1600';
+
+export type SizeHeightToken = TokenConstructor<['size', 'height', SizeHeightScale]>;
+export type SizeWidthToken = TokenConstructor<['size', 'width', SizeWidthScale]>;
+
 type BorderRadiusScale = 'none' | 'xs' | 's' | 'm' | 'l' | 'xl' | 'full';
 export type BorderRadiusToken = TokenConstructor<['border', 'radius', BorderRadiusScale]>;
 
