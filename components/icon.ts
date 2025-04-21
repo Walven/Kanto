@@ -24,16 +24,16 @@ const ICON_TOKEN_VALUES = {
 type CSSSelector =
   | `.${IconColorProp} svg.kanto-icon`
   | `${ParentSelectorPseudoClasses} svg.kanto-icon`
-  | `svg.kanto-icon.${IconColorProp | `size-${IconSizeProp}`}`
+  | `svg.kanto-icon.${IconColorProp | `${IconSizeProp}`}`
   | 'svg.kanto-icon';
 
 export const iconRules: CSSRules<CSSSelector> = [
   ['svg.kanto-icon', ICON_TOKEN_VALUES],
   // Size
-  ['svg.kanto-icon.size-l', { width: 'icon-size-l', height: 'icon-size-l' }],
-  [['svg.kanto-icon', 'svg.kanto-icon.size-m'], { width: 'icon-size-m', height: 'icon-size-m' }],
-  ['svg.kanto-icon.size-s', { width: 'icon-size-s', height: 'icon-size-s' }],
-  ['svg.kanto-icon.size-xs', { width: 'icon-size-xs', height: 'icon-size-xs' }],
+  ['svg.kanto-icon.l', { width: 'icon-size-l', height: 'icon-size-l' }],
+  [['svg.kanto-icon', 'svg.kanto-icon.m'], { width: 'icon-size-m', height: 'icon-size-m' }],
+  ['svg.kanto-icon.s', { width: 'icon-size-s', height: 'icon-size-s' }],
+  ['svg.kanto-icon.xs', { width: 'icon-size-xs', height: 'icon-size-xs' }],
   // Padding
   // Gap
   // Border size

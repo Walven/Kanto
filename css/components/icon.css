@@ -5,23 +5,23 @@ svg.kanto-icon {
   --icon-size-xs: 12px;
 }
 
-svg.kanto-icon.size-l {
+svg.kanto-icon.l {
   width: var(--icon-size-l);
   height: var(--icon-size-l);
 }
 
 svg.kanto-icon,
-svg.kanto-icon.size-m {
+svg.kanto-icon.m {
   width: var(--icon-size-m);
   height: var(--icon-size-m);
 }
 
-svg.kanto-icon.size-s {
+svg.kanto-icon.s {
   width: var(--icon-size-s);
   height: var(--icon-size-s);
 }
 
-svg.kanto-icon.size-xs {
+svg.kanto-icon.xs {
   width: var(--icon-size-xs);
   height: var(--icon-size-xs);
 }
