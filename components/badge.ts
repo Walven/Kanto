@@ -1,32 +1,33 @@
 import { ColorType } from '../foundations/colors';
 import type { SpacingToken, TokenConstructor } from '../foundations/token';
 import { PixelUnitTokenType } from '../foundations/tokenTypes';
-import { CSSRules } from './common';
+import { ComponentChildCSSSelectors, ComponentCSSSelectors, CSSRules } from './common';
+import { ICON_CSS_SELECTOR } from './icon';
 
 // prettier-ignore
 export const BADGE_DECORATION_COLORS = ['gold' , 'silver' , 'bronze' , 'topaz' , 'vermilion' , 'crimson' , 'magenta' , 'fuchsia' , 'amethyst' , 'lavender' , 'cobalt' , 'cerulean' , 'cyan' , 'celadon' , 'peridot' , 'olive' , 'saffron' , 'azure'] as const
 type BadgeDecorationColor = (typeof BADGE_DECORATION_COLORS)[number];
 type BadgeDecorativeType = `decorative-${BadgeDecorationColor}`;
+
 export type BadgeTypeProp = ColorType | BadgeDecorativeType;
 export type BadgeStyleProp = 'solid' | 'soft' | 'outline' | 'ghost';
 export type BadgeSizeProp = 'm' | 's' | 'xs';
+
 export type BadgeSizeToken = TokenConstructor<['badge', 'size', BadgeSizeProp]>;
 
-type BadgeLeafCSSSelector = `span.kanto-badge.${BadgeSizeProp} > span`;
-type BadgeContainerCSSSelector = `span.kanto-badge.${BadgeSizeProp}`;
+const BADGE_CSS_SELECTOR = {
+  lax: 'span.kanto-badge',
+  strict: 'span[class="kanto-badge"]',
+} as const;
+
+type BadgeSelector = typeof BADGE_CSS_SELECTOR.lax;
+type IconSelector = typeof ICON_CSS_SELECTOR.strict;
+type LeafSelector = 'span';
 
 type CSSSelector =
-  | BadgeLeafCSSSelector
-  | BadgeContainerCSSSelector
-  | `${BadgeContainerCSSSelector}.icon-only`
-  | `${BadgeContainerCSSSelector} > svg[class="kanto-icon"]`
-  | `span.kanto-badge.${BadgeTypeProp}.${BadgeStyleProp}`
-  | `span.kanto-badge.${BadgeStyleProp}`
-  | `span.kanto-badge.${BadgeTypeProp}`
-  | `span.kanto-badge.${BadgeTypeProp} > svg[class="kanto-icon"]`
-  | `span.kanto-badge.${BadgeTypeProp}.solid > svg[class="kanto-icon"]`
-  | 'span.kanto-badge'
-  | 'span.kanto-badge.icon-only';
+  | ComponentCSSSelectors<BadgeSelector, [BadgeTypeProp, BadgeStyleProp, BadgeSizeProp, 'icon-only']>
+  | ComponentChildCSSSelectors<BadgeSelector, IconSelector, [BadgeTypeProp, BadgeStyleProp, BadgeSizeProp]>
+  | ComponentChildCSSSelectors<BadgeSelector, LeafSelector, [BadgeSizeProp]>;
 
 const BADGE_TOKEN_VALUES = {
   '--badge-size-m': '24px',

@@ -1,6 +1,6 @@
 import { TokenConstructor } from '../foundations/token';
 import { PixelUnitTokenType } from '../foundations/tokenTypes';
-import { CSSRules, ParentSelectorPseudoClasses } from './common';
+import { ComponentCSSSelectors, CSSRules, ParentSelectorPseudoClasses } from './common';
 
 export type IconColorProp =
   | 'success'
@@ -21,11 +21,17 @@ const ICON_TOKEN_VALUES = {
   '--icon-size-xs': '12px',
 } satisfies Record<`--${IconSizeToken}`, PixelUnitTokenType>;
 
+export const ICON_CSS_SELECTOR = {
+  lax: 'svg.kanto-icon',
+  strict: 'svg[class="kanto-icon"]',
+} as const;
+
+type IconSelector = typeof ICON_CSS_SELECTOR.lax;
+
 type CSSSelector =
-  | `.${IconColorProp} svg.kanto-icon`
-  | `${ParentSelectorPseudoClasses} svg.kanto-icon`
-  | `svg.kanto-icon.${IconColorProp | `${IconSizeProp}`}`
-  | 'svg.kanto-icon';
+  | ComponentCSSSelectors<IconSelector, [IconColorProp, IconSizeProp]>
+  | `.${IconColorProp} ${IconSelector}`
+  | `${ParentSelectorPseudoClasses} ${IconSelector}`;
 
 export const iconRules: CSSRules<CSSSelector> = [
   ['svg.kanto-icon', ICON_TOKEN_VALUES],
