@@ -51,7 +51,7 @@ export type IconProps = {
 };
 
 export const Icon = ({ name, style, size, color, className }: IconProps) => {
-  const cn = ['kanto-icon', size ? `size-${size}` : undefined, color, className].filter((v) => !!v).join(' ');
+  const cn = ['kanto-icon', size, color, className].filter((v) => !!v).join(' ');
 
   if (style === 'solid') {
     switch (name) {

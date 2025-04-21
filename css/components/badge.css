@@ -12,27 +12,27 @@ span.kanto-badge.icon-only {
   justify-content: center;
 }
 
-span.kanto-badge.size-m {
+span.kanto-badge.m {
   height: var(--badge-size-m);
 }
 
-span.kanto-badge.size-m.icon-only {
+span.kanto-badge.m.icon-only {
   width: var(--badge-size-m);
 }
 
-span.kanto-badge.size-s {
+span.kanto-badge.s {
   height: var(--badge-size-s);
 }
 
-span.kanto-badge.size-s.icon-only {
+span.kanto-badge.s.icon-only {
   width: var(--badge-size-s);
 }
 
-span.kanto-badge.size-xs {
+span.kanto-badge.xs {
   height: var(--badge-size-xs);
 }
 
-span.kanto-badge.size-s > svg[class="kanto-icon"] {
+span.kanto-badge.s > svg[class="kanto-icon"] {
   width: var(--icon-size-s);
   height: var(--icon-size-s);
 }
@@ -41,15 +41,15 @@ span.kanto-badge.icon-only {
   padding: var(--space-0) var(--space-0);
 }
 
-span.kanto-badge.size-m > span {
+span.kanto-badge.m > span {
   padding: var(--space-0) var(--space-100);
 }
 
-span.kanto-badge.size-s > span {
+span.kanto-badge.s > span {
   padding: var(--space-0) var(--space-50);
 }
 
-span.kanto-badge.size-xs > span {
+span.kanto-badge.xs > span {
   padding: var(--space-0) var(--space-0);
 }
 
@@ -64,115 +64,115 @@ span.kanto-badge.outline {
   border-radius: var(--border-radius-s);
 }
 
-span.kanto-badge.color-neutral.soft {
+span.kanto-badge.neutral.soft {
   background-color: var(--color-background-subtle);
 }
 
-span.kanto-badge.color-accent.soft {
+span.kanto-badge.accent.soft {
   background-color: var(--color-background-accent-subtle);
 }
 
-span.kanto-badge.color-success.soft {
+span.kanto-badge.success.soft {
   background-color: var(--color-background-success-subtle);
 }
 
-span.kanto-badge.color-critical.soft {
+span.kanto-badge.critical.soft {
   background-color: var(--color-background-critical-subtle);
 }
 
-span.kanto-badge.color-highlight.soft {
+span.kanto-badge.highlight.soft {
   background-color: var(--color-background-highlight-subtle);
 }
 
-span.kanto-badge.color-neutral.solid {
+span.kanto-badge.neutral.solid {
   background-color: var(--color-background-strong);
 }
 
-span.kanto-badge.color-accent.solid {
+span.kanto-badge.accent.solid {
   background-color: var(--color-background-accent-strong);
 }
 
-span.kanto-badge.color-success.solid {
+span.kanto-badge.success.solid {
   background-color: var(--color-background-success-strong);
 }
 
-span.kanto-badge.color-critical.solid {
+span.kanto-badge.critical.solid {
   background-color: var(--color-background-critical-strong);
 }
 
-span.kanto-badge.color-highlight.solid {
+span.kanto-badge.highlight.solid {
   background-color: var(--color-background-highlight-strong);
 }
 
-span.kanto-badge.color-decorative-gold.soft {
+span.kanto-badge.decorative-gold.soft {
   background-color: light-dark(var(--palette-gold-4), var(--palette-golddark-4));
 }
 
-span.kanto-badge.color-decorative-silver.soft {
+span.kanto-badge.decorative-silver.soft {
   background-color: light-dark(var(--palette-silver-4), var(--palette-silverdark-4));
 }
 
-span.kanto-badge.color-decorative-bronze.soft {
+span.kanto-badge.decorative-bronze.soft {
   background-color: light-dark(var(--palette-bronze-4), var(--palette-bronzedark-4));
 }
 
-span.kanto-badge.color-decorative-topaz.soft {
+span.kanto-badge.decorative-topaz.soft {
   background-color: light-dark(var(--palette-topaz-4), var(--palette-topazdark-4));
 }
 
-span.kanto-badge.color-decorative-vermilion.soft {
+span.kanto-badge.decorative-vermilion.soft {
   background-color: light-dark(var(--palette-vermilion-4), var(--palette-vermiliondark-4));
 }
 
-span.kanto-badge.color-decorative-crimson.soft {
+span.kanto-badge.decorative-crimson.soft {
   background-color: light-dark(var(--palette-crimson-4), var(--palette-crimsondark-4));
 }
 
-span.kanto-badge.color-decorative-magenta.soft {
+span.kanto-badge.decorative-magenta.soft {
   background-color: light-dark(var(--palette-magenta-4), var(--palette-magentadark-4));
 }
 
-span.kanto-badge.color-decorative-fuchsia.soft {
+span.kanto-badge.decorative-fuchsia.soft {
   background-color: light-dark(var(--palette-fuchsia-4), var(--palette-fuchsiadark-4));
 }
 
-span.kanto-badge.color-decorative-amethyst.soft {
+span.kanto-badge.decorative-amethyst.soft {
   background-color: light-dark(var(--palette-amethyst-4), var(--palette-amethystdark-4));
 }
 
-span.kanto-badge.color-decorative-lavender.soft {
+span.kanto-badge.decorative-lavender.soft {
   background-color: light-dark(var(--palette-lavender-4), var(--palette-lavenderdark-4));
 }
 
-span.kanto-badge.color-decorative-cobalt.soft {
+span.kanto-badge.decorative-cobalt.soft {
   background-color: light-dark(var(--palette-cobalt-4), var(--palette-cobaltdark-4));
 }
 
-span.kanto-badge.color-decorative-cerulean.soft {
+span.kanto-badge.decorative-cerulean.soft {
   background-color: light-dark(var(--palette-cerulean-4), var(--palette-ceruleandark-4));
 }
 
-span.kanto-badge.color-decorative-cyan.soft {
+span.kanto-badge.decorative-cyan.soft {
   background-color: light-dark(var(--palette-cyan-4), var(--palette-cyandark-4));
 }
 
-span.kanto-badge.color-decorative-celadon.soft {
+span.kanto-badge.decorative-celadon.soft {
   background-color: light-dark(var(--palette-celadon-4), var(--palette-celadondark-4));
 }
 
-span.kanto-badge.color-decorative-peridot.soft {
+span.kanto-badge.decorative-peridot.soft {
   background-color: light-dark(var(--palette-peridot-4), var(--palette-peridotdark-4));
 }
 
-span.kanto-badge.color-decorative-olive.soft {
+span.kanto-badge.decorative-olive.soft {
   background-color: light-dark(var(--palette-olive-4), var(--palette-olivedark-4));
 }
 
-span.kanto-badge.color-decorative-saffron.soft {
+span.kanto-badge.decorative-saffron.soft {
   background-color: light-dark(var(--palette-saffron-4), var(--palette-saffrondark-4));
 }
 
-span.kanto-badge.color-decorative-azure.soft {
+span.kanto-badge.decorative-azure.soft {
   background-color: light-dark(var(--palette-azure-4), var(--palette-azuredark-4));
 }
 
@@ -180,198 +180,198 @@ span.kanto-badge.outline {
   border-color: var(--color-border-subtle);
 }
 
-span.kanto-badge.color-neutral {
+span.kanto-badge.neutral {
   color: var(--color-text-muted);
 }
 
-span.kanto-badge.color-accent {
+span.kanto-badge.accent {
   color: var(--color-text-accent-subtle);
 }
 
-span.kanto-badge.color-success {
+span.kanto-badge.success {
   color: var(--color-text-success-subtle);
 }
 
-span.kanto-badge.color-critical {
+span.kanto-badge.critical {
   color: var(--color-text-critical-subtle);
 }
 
-span.kanto-badge.color-highlight {
+span.kanto-badge.highlight {
   color: var(--color-text-highlight-subtle);
 }
 
-span.kanto-badge.color-neutral.solid,
-span.kanto-badge.color-accent.solid,
-span.kanto-badge.color-success.solid,
-span.kanto-badge.color-critical.solid,
-span.kanto-badge.color-highlight.solid {
+span.kanto-badge.neutral.solid,
+span.kanto-badge.accent.solid,
+span.kanto-badge.success.solid,
+span.kanto-badge.critical.solid,
+span.kanto-badge.highlight.solid {
   color: var(--color-text-static-white);
 }
 
-span.kanto-badge.color-decorative-gold {
+span.kanto-badge.decorative-gold {
   color: light-dark(var(--palette-gold-13), var(--palette-golddark-13));
 }
 
-span.kanto-badge.color-decorative-silver {
+span.kanto-badge.decorative-silver {
   color: light-dark(var(--palette-silver-13), var(--palette-silverdark-13));
 }
 
-span.kanto-badge.color-decorative-bronze {
+span.kanto-badge.decorative-bronze {
   color: light-dark(var(--palette-bronze-13), var(--palette-bronzedark-13));
 }
 
-span.kanto-badge.color-decorative-topaz {
+span.kanto-badge.decorative-topaz {
   color: light-dark(var(--palette-topaz-13), var(--palette-topazdark-13));
 }
 
-span.kanto-badge.color-decorative-vermilion {
+span.kanto-badge.decorative-vermilion {
   color: light-dark(var(--palette-vermilion-13), var(--palette-vermiliondark-13));
 }
 
-span.kanto-badge.color-decorative-crimson {
+span.kanto-badge.decorative-crimson {
   color: light-dark(var(--palette-crimson-13), var(--palette-crimsondark-13));
 }
 
-span.kanto-badge.color-decorative-magenta {
+span.kanto-badge.decorative-magenta {
   color: light-dark(var(--palette-magenta-13), var(--palette-magentadark-13));
 }
 
-span.kanto-badge.color-decorative-fuchsia {
+span.kanto-badge.decorative-fuchsia {
   color: light-dark(var(--palette-fuchsia-13), var(--palette-fuchsiadark-13));
 }
 
-span.kanto-badge.color-decorative-amethyst {
+span.kanto-badge.decorative-amethyst {
   color: light-dark(var(--palette-amethyst-13), var(--palette-amethystdark-13));
 }
 
-span.kanto-badge.color-decorative-lavender {
+span.kanto-badge.decorative-lavender {
   color: light-dark(var(--palette-lavender-13), var(--palette-lavenderdark-13));
 }
 
-span.kanto-badge.color-decorative-cobalt {
+span.kanto-badge.decorative-cobalt {
   color: light-dark(var(--palette-cobalt-13), var(--palette-cobaltdark-13));
 }
 
-span.kanto-badge.color-decorative-cerulean {
+span.kanto-badge.decorative-cerulean {
   color: light-dark(var(--palette-cerulean-13), var(--palette-ceruleandark-13));
 }
 
-span.kanto-badge.color-decorative-cyan {
+span.kanto-badge.decorative-cyan {
   color: light-dark(var(--palette-cyan-13), var(--palette-cyandark-13));
 }
 
-span.kanto-badge.color-decorative-celadon {
+span.kanto-badge.decorative-celadon {
   color: light-dark(var(--palette-celadon-13), var(--palette-celadondark-13));
 }
 
-span.kanto-badge.color-decorative-peridot {
+span.kanto-badge.decorative-peridot {
   color: light-dark(var(--palette-peridot-13), var(--palette-peridotdark-13));
 }
 
-span.kanto-badge.color-decorative-olive {
+span.kanto-badge.decorative-olive {
   color: light-dark(var(--palette-olive-13), var(--palette-olivedark-13));
 }
 
-span.kanto-badge.color-decorative-saffron {
+span.kanto-badge.decorative-saffron {
   color: light-dark(var(--palette-saffron-13), var(--palette-saffrondark-13));
 }
 
-span.kanto-badge.color-decorative-azure {
+span.kanto-badge.decorative-azure {
   color: light-dark(var(--palette-azure-13), var(--palette-azuredark-13));
 }
 
-span.kanto-badge.color-accent > svg[class="kanto-icon"] {
+span.kanto-badge.accent > svg[class="kanto-icon"] {
   color: var(--color-icon-accent);
 }
 
-span.kanto-badge.color-success > svg[class="kanto-icon"] {
+span.kanto-badge.success > svg[class="kanto-icon"] {
   color: var(--color-icon-success);
 }
 
-span.kanto-badge.color-critical > svg[class="kanto-icon"] {
+span.kanto-badge.critical > svg[class="kanto-icon"] {
   color: var(--color-icon-critical);
 }
 
-span.kanto-badge.color-highlight > svg[class="kanto-icon"] {
+span.kanto-badge.highlight > svg[class="kanto-icon"] {
   color: var(--color-icon-highlight);
 }
 
-span.kanto-badge.color-neutral.solid > svg[class="kanto-icon"],
-span.kanto-badge.color-accent.solid > svg[class="kanto-icon"],
-span.kanto-badge.color-success.solid > svg[class="kanto-icon"],
-span.kanto-badge.color-critical.solid > svg[class="kanto-icon"],
-span.kanto-badge.color-highlight.solid > svg[class="kanto-icon"] {
+span.kanto-badge.neutral.solid > svg[class="kanto-icon"],
+span.kanto-badge.accent.solid > svg[class="kanto-icon"],
+span.kanto-badge.success.solid > svg[class="kanto-icon"],
+span.kanto-badge.critical.solid > svg[class="kanto-icon"],
+span.kanto-badge.highlight.solid > svg[class="kanto-icon"] {
   color: var(--color-icon-static-white);
 }
 
-span.kanto-badge.color-decorative-gold > svg[class="kanto-icon"] {
+span.kanto-badge.decorative-gold > svg[class="kanto-icon"] {
   color: light-dark(var(--palette-gold-11), var(--palette-golddark-11));
 }
 
-span.kanto-badge.color-decorative-silver > svg[class="kanto-icon"] {
+span.kanto-badge.decorative-silver > svg[class="kanto-icon"] {
   color: light-dark(var(--palette-silver-11), var(--palette-silverdark-11));
 }
 
-span.kanto-badge.color-decorative-bronze > svg[class="kanto-icon"] {
+span.kanto-badge.decorative-bronze > svg[class="kanto-icon"] {
   color: light-dark(var(--palette-bronze-11), var(--palette-bronzedark-11));
 }
 
-span.kanto-badge.color-decorative-topaz > svg[class="kanto-icon"] {
+span.kanto-badge.decorative-topaz > svg[class="kanto-icon"] {
   color: light-dark(var(--palette-topaz-11), var(--palette-topazdark-11));
 }
 
-span.kanto-badge.color-decorative-vermilion > svg[class="kanto-icon"] {
+span.kanto-badge.decorative-vermilion > svg[class="kanto-icon"] {
   color: light-dark(var(--palette-vermilion-11), var(--palette-vermiliondark-11));
 }
 
-span.kanto-badge.color-decorative-crimson > svg[class="kanto-icon"] {
+span.kanto-badge.decorative-crimson > svg[class="kanto-icon"] {
   color: light-dark(var(--palette-crimson-11), var(--palette-crimsondark-11));
 }
 
-span.kanto-badge.color-decorative-magenta > svg[class="kanto-icon"] {
+span.kanto-badge.decorative-magenta > svg[class="kanto-icon"] {
   color: light-dark(var(--palette-magenta-11), var(--palette-magentadark-11));
 }
 
-span.kanto-badge.color-decorative-fuchsia > svg[class="kanto-icon"] {
+span.kanto-badge.decorative-fuchsia > svg[class="kanto-icon"] {
   color: light-dark(var(--palette-fuchsia-11), var(--palette-fuchsiadark-11));
 }
 
-span.kanto-badge.color-decorative-amethyst > svg[class="kanto-icon"] {
+span.kanto-badge.decorative-amethyst > svg[class="kanto-icon"] {
   color: light-dark(var(--palette-amethyst-11), var(--palette-amethystdark-11));
 }
 
-span.kanto-badge.color-decorative-lavender > svg[class="kanto-icon"] {
+span.kanto-badge.decorative-lavender > svg[class="kanto-icon"] {
   color: light-dark(var(--palette-lavender-11), var(--palette-lavenderdark-11));
 }
 
-span.kanto-badge.color-decorative-cobalt > svg[class="kanto-icon"] {
+span.kanto-badge.decorative-cobalt > svg[class="kanto-icon"] {
   color: light-dark(var(--palette-cobalt-11), var(--palette-cobaltdark-11));
 }
 
-span.kanto-badge.color-decorative-cerulean > svg[class="kanto-icon"] {
+span.kanto-badge.decorative-cerulean > svg[class="kanto-icon"] {
   color: light-dark(var(--palette-cerulean-11), var(--palette-ceruleandark-11));
 }
 
-span.kanto-badge.color-decorative-cyan > svg[class="kanto-icon"] {
+span.kanto-badge.decorative-cyan > svg[class="kanto-icon"] {
   color: light-dark(var(--palette-cyan-11), var(--palette-cyandark-11));
 }
 
-span.kanto-badge.color-decorative-celadon > svg[class="kanto-icon"] {
+span.kanto-badge.decorative-celadon > svg[class="kanto-icon"] {
   color: light-dark(var(--palette-celadon-11), var(--palette-celadondark-11));
 }
 
-span.kanto-badge.color-decorative-peridot > svg[class="kanto-icon"] {
+span.kanto-badge.decorative-peridot > svg[class="kanto-icon"] {
   color: light-dark(var(--palette-peridot-11), var(--palette-peridotdark-11));
 }
 
-span.kanto-badge.color-decorative-olive > svg[class="kanto-icon"] {
+span.kanto-badge.decorative-olive > svg[class="kanto-icon"] {
   color: light-dark(var(--palette-olive-11), var(--palette-olivedark-11));
 }
 
-span.kanto-badge.color-decorative-saffron > svg[class="kanto-icon"] {
+span.kanto-badge.decorative-saffron > svg[class="kanto-icon"] {
   color: light-dark(var(--palette-saffron-11), var(--palette-saffrondark-11));
 }
 
-span.kanto-badge.color-decorative-azure > svg[class="kanto-icon"] {
+span.kanto-badge.decorative-azure > svg[class="kanto-icon"] {
   color: light-dark(var(--palette-azure-11), var(--palette-azuredark-11));
 }
