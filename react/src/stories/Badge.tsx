@@ -11,7 +11,7 @@ export type BadgeProps = {
 };
 
 export const Badge = ({ type, style, size, icon, children }: BadgeProps) => {
-  const className = `kanto-badge color-${type} size-${size ?? 'm'} ${style}`;
+  const className = ['kanto-badge', type, style, size ?? 'm', icon].filter((s) => !!s).join(' ');
 
-  return <span className={icon ? `${className} ${icon}` : className}>{children}</span>;
+  return <span className={className}>{children}</span>;
 };

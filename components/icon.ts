@@ -1,6 +1,6 @@
 import { TokenConstructor } from '../foundations/token';
 import { PixelUnitTokenType } from '../foundations/tokenTypes';
-import { CSSRules, ParentSelectorPseudoClasses } from './common';
+import { ComponentCSSSelectors, CSSRules, ParentSelectorPseudoClasses } from './common';
 
 export type IconColorProp =
   | 'success'
@@ -21,19 +21,25 @@ const ICON_TOKEN_VALUES = {
   '--icon-size-xs': '12px',
 } satisfies Record<`--${IconSizeToken}`, PixelUnitTokenType>;
 
+export const ICON_CSS_SELECTOR = {
+  lax: 'svg.kanto-icon',
+  strict: 'svg[class="kanto-icon"]',
+} as const;
+
+type IconSelector = typeof ICON_CSS_SELECTOR.lax;
+
 type CSSSelector =
-  | `.${IconColorProp} svg.kanto-icon`
-  | `${ParentSelectorPseudoClasses} svg.kanto-icon`
-  | `svg.kanto-icon.${IconColorProp | `size-${IconSizeProp}`}`
-  | 'svg.kanto-icon';
+  | ComponentCSSSelectors<IconSelector, [IconColorProp, IconSizeProp]>
+  | `.${IconColorProp} ${IconSelector}`
+  | `${ParentSelectorPseudoClasses} ${IconSelector}`;
 
 export const iconRules: CSSRules<CSSSelector> = [
   ['svg.kanto-icon', ICON_TOKEN_VALUES],
   // Size
-  ['svg.kanto-icon.size-l', { width: 'icon-size-l', height: 'icon-size-l' }],
-  [['svg.kanto-icon', 'svg.kanto-icon.size-m'], { width: 'icon-size-m', height: 'icon-size-m' }],
-  ['svg.kanto-icon.size-s', { width: 'icon-size-s', height: 'icon-size-s' }],
-  ['svg.kanto-icon.size-xs', { width: 'icon-size-xs', height: 'icon-size-xs' }],
+  ['svg.kanto-icon.l', { width: 'icon-size-l', height: 'icon-size-l' }],
+  [['svg.kanto-icon', 'svg.kanto-icon.m'], { width: 'icon-size-m', height: 'icon-size-m' }],
+  ['svg.kanto-icon.s', { width: 'icon-size-s', height: 'icon-size-s' }],
+  ['svg.kanto-icon.xs', { width: 'icon-size-xs', height: 'icon-size-xs' }],
   // Padding
   // Gap
   // Border size

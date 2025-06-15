@@ -80,3 +80,46 @@ export const rulesToCSS = <T extends string>(rules: CSSRules<T>) =>
       return `${selectorsString} {\n  ${toCSSPropertyStrings(properties)}\n}`;
     })
     .join('\n\n');
+
+/**
+ * Allow construction of classes
+ *
+ * @example
+ * ```
+ *  type CSSSelectors = ClassConstructor<['s' | 'xs', 'strong' | 'moderate']> // '.s' | '.xs' | '.s.strong' | 'xs.strong' | '.strong' | ...
+ * ```
+ *
+ * @note Avoid using combining too much complex type (we can have upto 25000 tokens from ClassConstructor but above is getting risky)
+ */
+export type ClassConstructor<A extends [string, ...string[]]> = A extends [
+  infer B extends string,
+  ...infer REST extends [string, ...string[]]
+]
+  ? `.${B}${ClassConstructor<REST>}` | `.${B}` | ClassConstructor<REST>
+  : `.${A[0]}`;
+
+/**
+ * Allow construction of CSS Selector for a component
+ *
+ * @example
+ * ```
+ * type CSSSelectors = ComponentCSSSelectors<'span.kanto-badge', ['xs' | 's']> // "span.kanto-badge" | "span.kanto-badge.xs" | "span.kanto-badge.s"
+ * ```
+ */
+export type ComponentCSSSelectors<Component extends `${string}.kanto-${string}`, A extends [string, ...string[]]> =
+  | Component
+  | `${Component}${ClassConstructor<A>}`;
+
+/**
+ * Allow construction of CSS Selector for a component children
+ *
+ * @example
+ * ```
+ * type CSSSelectors = ComponentCSSSelectors<'span.kanto-badge', 'svg[class="kanto-icon"]', ['xs' | 's']> //  "span.kanto-badge > svg[class="kanto-icon"]" | "span.kanto-badge.xs > svg[class="kanto-icon"]" | "span.kanto-badge.s > svg[class="kanto-icon"]"
+ * ```
+ */
+export type ComponentChildCSSSelectors<
+  Component extends `${string}.kanto-${string}`,
+  Children extends `${string}.kanto-${string}` | `${string}[class="kanto-${string}"]` | (string & {}),
+  A extends [string, ...string[]]
+> = `${Component} > ${Children}` | `${Component}${ClassConstructor<A>} > ${Children}`;
